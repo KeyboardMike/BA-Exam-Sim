@@ -18,7 +18,7 @@
   --line:rgba(20,40,90,.09);--line2:rgba(20,40,90,.16);--hi:inset 0 1px 0 rgba(255,255,255,.65);
   --text:#0e1a33;--muted:#46546f;--faint:#5a6884;
   --accent:#1f4fd1;--accent-top:#2b5fe0;--on-accent:#ffffff;--accent-ink:#1c46c0;--accent-soft:rgba(31,79,209,.09);--accent-ring:rgba(31,79,209,.5);--accent-2:#0e7aa8;
-  --good:#11805b;--good-ink:#0d6b4c;--good-soft:rgba(17,128,91,.10);
+  --good:#11805b;--good-ink:#0d6b4c;--good-btn:#11805b;--bad-btn:#c23a4a;--good-soft:rgba(17,128,91,.10);
   --bad:#c23a4a;--bad-ink:#a52d3c;--bad-soft:rgba(194,58,74,.09);
   --warn:#c98a1a;--warn-ink:#835405;--warn-soft:rgba(214,152,36,.15);
   --series:#2457d6;--grid:rgba(20,40,90,.08);
@@ -33,10 +33,10 @@
   --r:16px;color-scheme:light;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#060a17;--b1:rgba(37,99,235,.34);--b2:rgba(6,182,212,.17);--b3:rgba(13,148,136,.22);--b4:rgba(29,78,216,.28);--panel:rgba(15,23,44,.70);--panel-solid:#111a30;--panel2:#18223d;--panel3:#202c4c;--well:rgba(255,255,255,.06);--btn2:rgba(255,255,255,.07);--btn2-sh:none;--line:rgba(255,255,255,.07);--line2:rgba(255,255,255,.14);--hi:inset 0 1px 0 rgba(255,255,255,.06);--text:#e7edfb;--muted:#a2afca;--faint:#8e9cba;--accent:#2c5ee8;--accent-top:#3a6cf2;--on-accent:#ffffff;--accent-ink:#93b4ff;--accent-soft:rgba(90,140,255,.15);--accent-ring:rgba(147,180,255,.6);--accent-2:#1fb5c6;--good:#169a6b;--good-ink:#5fd3a3;--good-soft:rgba(22,154,107,.16);--bad:#d4475b;--bad-ink:#ff8f9e;--bad-soft:rgba(212,71,91,.15);--warn:#e0a63a;--warn-ink:#f4c56a;--warn-soft:rgba(224,166,58,.15);--series:#7fa4ff;--grid:rgba(255,255,255,.06);--banner:linear-gradient(120deg,#142a7a 0%,#1d47c6 50%,#0c5f8a 100%);--banner-sh:0 18px 44px -18px rgba(37,99,235,.65);--sh-1:inset 0 1px 0 rgba(255,255,255,.05),0 2px 8px rgba(0,0,0,.35);--sh-2:0 16px 40px -16px rgba(0,0,0,.75),0 12px 44px -22px rgba(59,110,246,.38);--sh-3:0 22px 54px -18px rgba(0,0,0,.8),0 18px 64px -24px rgba(59,110,246,.55);--shadow:var(--sh-3);color-scheme:dark;
+  --bg:#060a17;--b1:rgba(37,99,235,.34);--b2:rgba(6,182,212,.17);--b3:rgba(13,148,136,.22);--b4:rgba(29,78,216,.28);--panel:rgba(15,23,44,.70);--panel-solid:#111a30;--panel2:#18223d;--panel3:#202c4c;--well:rgba(255,255,255,.06);--btn2:rgba(255,255,255,.07);--btn2-sh:none;--line:rgba(255,255,255,.07);--line2:rgba(255,255,255,.14);--hi:inset 0 1px 0 rgba(255,255,255,.06);--text:#e7edfb;--muted:#a2afca;--faint:#8e9cba;--accent:#2c5ee8;--accent-top:#3a6cf2;--on-accent:#ffffff;--accent-ink:#93b4ff;--accent-soft:rgba(90,140,255,.15);--accent-ring:rgba(147,180,255,.6);--accent-2:#1fb5c6;--good:#169a6b;--good-ink:#5fd3a3;--good-btn:#137a55;--bad-btn:#b93a4d;--good-soft:rgba(22,154,107,.16);--bad:#d4475b;--bad-ink:#ff8f9e;--bad-soft:rgba(212,71,91,.15);--warn:#e0a63a;--warn-ink:#f4c56a;--warn-soft:rgba(224,166,58,.15);--series:#7fa4ff;--grid:rgba(255,255,255,.06);--banner:linear-gradient(120deg,#142a7a 0%,#1d47c6 50%,#0c5f8a 100%);--banner-sh:0 18px 44px -18px rgba(37,99,235,.65);--sh-1:inset 0 1px 0 rgba(255,255,255,.05),0 2px 8px rgba(0,0,0,.35);--sh-2:0 16px 40px -16px rgba(0,0,0,.75),0 12px 44px -22px rgba(59,110,246,.38);--sh-3:0 22px 54px -18px rgba(0,0,0,.8),0 18px 64px -24px rgba(59,110,246,.55);--shadow:var(--sh-3);color-scheme:dark;
 }}
 :root[data-theme="dark"]{
-  --bg:#060a17;--b1:rgba(37,99,235,.34);--b2:rgba(6,182,212,.17);--b3:rgba(13,148,136,.22);--b4:rgba(29,78,216,.28);--panel:rgba(15,23,44,.70);--panel-solid:#111a30;--panel2:#18223d;--panel3:#202c4c;--well:rgba(255,255,255,.06);--btn2:rgba(255,255,255,.07);--btn2-sh:none;--line:rgba(255,255,255,.07);--line2:rgba(255,255,255,.14);--hi:inset 0 1px 0 rgba(255,255,255,.06);--text:#e7edfb;--muted:#a2afca;--faint:#8e9cba;--accent:#2c5ee8;--accent-top:#3a6cf2;--on-accent:#ffffff;--accent-ink:#93b4ff;--accent-soft:rgba(90,140,255,.15);--accent-ring:rgba(147,180,255,.6);--accent-2:#1fb5c6;--good:#169a6b;--good-ink:#5fd3a3;--good-soft:rgba(22,154,107,.16);--bad:#d4475b;--bad-ink:#ff8f9e;--bad-soft:rgba(212,71,91,.15);--warn:#e0a63a;--warn-ink:#f4c56a;--warn-soft:rgba(224,166,58,.15);--series:#7fa4ff;--grid:rgba(255,255,255,.06);--banner:linear-gradient(120deg,#142a7a 0%,#1d47c6 50%,#0c5f8a 100%);--banner-sh:0 18px 44px -18px rgba(37,99,235,.65);--sh-1:inset 0 1px 0 rgba(255,255,255,.05),0 2px 8px rgba(0,0,0,.35);--sh-2:0 16px 40px -16px rgba(0,0,0,.75),0 12px 44px -22px rgba(59,110,246,.38);--sh-3:0 22px 54px -18px rgba(0,0,0,.8),0 18px 64px -24px rgba(59,110,246,.55);--shadow:var(--sh-3);color-scheme:dark;
+  --bg:#060a17;--b1:rgba(37,99,235,.34);--b2:rgba(6,182,212,.17);--b3:rgba(13,148,136,.22);--b4:rgba(29,78,216,.28);--panel:rgba(15,23,44,.70);--panel-solid:#111a30;--panel2:#18223d;--panel3:#202c4c;--well:rgba(255,255,255,.06);--btn2:rgba(255,255,255,.07);--btn2-sh:none;--line:rgba(255,255,255,.07);--line2:rgba(255,255,255,.14);--hi:inset 0 1px 0 rgba(255,255,255,.06);--text:#e7edfb;--muted:#a2afca;--faint:#8e9cba;--accent:#2c5ee8;--accent-top:#3a6cf2;--on-accent:#ffffff;--accent-ink:#93b4ff;--accent-soft:rgba(90,140,255,.15);--accent-ring:rgba(147,180,255,.6);--accent-2:#1fb5c6;--good:#169a6b;--good-ink:#5fd3a3;--good-btn:#137a55;--bad-btn:#b93a4d;--good-soft:rgba(22,154,107,.16);--bad:#d4475b;--bad-ink:#ff8f9e;--bad-soft:rgba(212,71,91,.15);--warn:#e0a63a;--warn-ink:#f4c56a;--warn-soft:rgba(224,166,58,.15);--series:#7fa4ff;--grid:rgba(255,255,255,.06);--banner:linear-gradient(120deg,#142a7a 0%,#1d47c6 50%,#0c5f8a 100%);--banner-sh:0 18px 44px -18px rgba(37,99,235,.65);--sh-1:inset 0 1px 0 rgba(255,255,255,.05),0 2px 8px rgba(0,0,0,.35);--sh-2:0 16px 40px -16px rgba(0,0,0,.75),0 12px 44px -22px rgba(59,110,246,.38);--sh-3:0 22px 54px -18px rgba(0,0,0,.8),0 18px 64px -24px rgba(59,110,246,.55);--shadow:var(--sh-3);color-scheme:dark;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;background:var(--bg)}
@@ -162,14 +162,18 @@ label.check input{margin-top:4px;accent-color:var(--accent)}
 .grid-nav{display:grid;grid-template-columns:repeat(auto-fill,minmax(40px,1fr));gap:6px;margin-top:12px}
 .grid-nav button{font:600 12px var(--mono);height:36px;border-radius:10px;border:0;background:var(--panel2);color:var(--faint);cursor:pointer;position:relative;transition:background .2s,transform .15s var(--ease)}
 .grid-nav button:hover{transform:translateY(-1px)}
-.grid-nav button.ans{background:var(--accent-soft);color:var(--accent-ink)}
+.grid-nav button{box-shadow:inset 0 0 0 1px var(--line2)}
+.grid-nav button.ans{background:var(--accent-soft);color:var(--accent-ink);box-shadow:inset 0 0 0 1.5px var(--accent-ring)}
 .grid-nav button.cur{outline:2px solid var(--accent-ring);outline-offset:1px}
 .grid-nav button.flag::after{content:"";position:absolute;top:4px;right:4px;width:6px;height:6px;border-radius:50%;background:var(--warn)}
-.grid-nav button.okc{background:var(--good-soft);color:var(--good-ink)}
-.grid-nav button.noc{background:var(--bad-soft);color:var(--bad-ink)}
+.grid-nav button.okc{background:var(--good-soft);color:var(--good-ink);box-shadow:inset 0 0 0 1.5px var(--good)}
+.grid-nav button.noc{background:var(--bad-soft);color:var(--bad-ink);box-shadow:inset 0 0 0 1.5px var(--bad)}
 .legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
-.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px;background:var(--panel3)}
-.legend i.a{background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent-ring)}.legend i.f{background:var(--warn);border-radius:50%}
+.legend span{white-space:nowrap}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px;background:var(--panel2);box-shadow:inset 0 0 0 1px var(--line2)}
+.legend i.a{background:var(--accent-soft);box-shadow:inset 0 0 0 1.5px var(--accent-ring)}.legend i.f{background:var(--warn);border-radius:50%;box-shadow:none}
+.legend i.ok{background:var(--good-soft);box-shadow:inset 0 0 0 1.5px var(--good)}.legend i.no{background:var(--bad-soft);box-shadow:inset 0 0 0 1.5px var(--bad)}
+.legend i.lr{background:var(--good);box-shadow:none}.legend i.lw{background:var(--bad);box-shadow:none}
 .jumps{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
 
 /* stats */
@@ -217,15 +221,40 @@ label.check input{margin-top:4px;accent-color:var(--accent)}
 .ritem{padding:18px 0;border-top:1px solid var(--line)}
 .rhead{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 
-/* flash cards */
-.fcard{display:flex;flex-direction:column;gap:14px;width:100%;min-height:270px;text-align:left;padding:30px;border-radius:18px;border:0;background:var(--panel);box-shadow:var(--hi),var(--sh-2);-webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);cursor:pointer;transition:box-shadow .3s var(--ease);animation:turn .4s var(--ease)}
-.fcard:hover{box-shadow:var(--hi),var(--sh-3)}
-.fcard.back{box-shadow:inset 0 3px 0 var(--accent),var(--hi),var(--sh-2)}
-@keyframes turn{from{opacity:.3;transform:perspective(1200px) rotateX(-7deg) translateY(8px)}}
-.fcard .fq{font-size:18px;line-height:1.6;white-space:pre-line;display:block}
-.fcard .fa{font-size:18px;font-weight:650;display:block;color:var(--accent-ink)}
-.fcard .fw{color:var(--muted);display:block;line-height:1.6}
-.fcard .hint{margin-top:auto;font-size:12.5px;color:var(--faint);display:block}
+/* flash cards: the card turns over to the answer, then "I got it right" or "I got it wrong" */
+.fc-layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,1fr);gap:18px;align-items:start}
+@media (max-width:860px){.fc-layout{grid-template-columns:1fr}}
+.fc-main{gap:14px}
+.fc3d{perspective:1600px;cursor:pointer;outline:none;border-radius:18px}
+.fc3d:focus-visible{outline:2px solid var(--accent-ring);outline-offset:4px}
+.fc-inner{display:grid;transform-style:preserve-3d;transition:transform .7s var(--ease)}
+.fc3d.flipped .fc-inner{transform:rotateY(180deg)}
+.fc-face{grid-area:1/1;display:flex;flex-direction:column;gap:14px;min-height:280px;padding:28px 30px;border-radius:18px;background:var(--panel-solid);box-shadow:var(--hi),var(--sh-2);-webkit-backface-visibility:hidden;backface-visibility:hidden;transition:box-shadow .3s var(--ease)}
+.fc-back{transform:rotateY(180deg);box-shadow:inset 0 3px 0 var(--accent),var(--hi),var(--sh-2)}
+.fc3d:hover .fc-front{box-shadow:var(--hi),var(--sh-3)}
+.fc3d:hover .fc-back{box-shadow:inset 0 3px 0 var(--accent),var(--hi),var(--sh-3)}
+.fc-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.fc-tag{font:700 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:5px 9px;border-radius:7px;color:var(--accent-ink);background:var(--accent-soft)}
+.fc-tag.ans{color:var(--on-accent);background:linear-gradient(180deg,var(--accent-top),var(--accent))}
+.fc-meta{font:500 11.5px/1.3 var(--mono);color:var(--faint)}
+.fc-face .fq{margin:0;font-size:19px;line-height:1.55;white-space:pre-line;letter-spacing:-.005em}
+.fc-face .fa{margin:0;font-size:19px;font-weight:650;line-height:1.4;color:var(--accent-ink)}
+.fc-face .fw{margin:0;color:var(--muted);line-height:1.6}
+.fc-face .hint{margin-top:auto;font-size:12.5px;color:var(--faint)}
+.fc-next .fc-inner{animation:fcIn .45s var(--ease)}
+@keyframes fcIn{from{opacity:0;transform:translateX(28px)}}
+.fc-tip{margin:0;font-weight:600}
+.fc-actions .btn{min-width:180px;padding:12px 18px;font-size:15px}
+.btn.fc-right,.panel .btn.fc-right{background:var(--good-btn);color:#fff;box-shadow:0 8px 20px -10px var(--good-btn)}
+.btn.fc-wrong,.panel .btn.fc-wrong{background:var(--bad-btn);color:#fff;box-shadow:0 8px 20px -10px var(--bad-btn)}
+.btn.fc-right:hover:not([disabled]),.btn.fc-wrong:hover:not([disabled]){filter:brightness(1.1);transform:translateY(-1px)}
+.fc-stats .kpi.streak.on .v{color:var(--good-ink)}
+.chart.wk .bar-r{fill:var(--good)}
+.chart.wk .bar-w{fill:var(--bad)}
+.chart.wk .axis.today{fill:var(--text);font-weight:700}
+.chart.wk .val{font:600 11.5px var(--mono);fill:var(--text)}
+main.enter .chart.wk path{animation:growY .7s var(--ease) .25s both;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes growY{from{transform:scaleY(0)}}
 
 /* overlays */
 .tip{position:fixed;z-index:60;pointer-events:none;background:var(--panel-solid);border:0;border-radius:11px;padding:8px 11px;font:12.5px/1.5 var(--mono);box-shadow:var(--sh-3);max-width:290px;color:var(--muted)}
@@ -234,7 +263,7 @@ label.check input{margin-top:4px;accent-color:var(--accent)}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .toast.bad{background:var(--bad);color:#fff}
 ul.plain{margin:6px 0 0;padding-left:18px;font-size:13.5px;color:var(--muted)}
-@media (max-width:560px){.qtools{width:100%}.timer{text-align:left;min-width:0;margin-right:auto}main{padding:18px 14px 64px}.panel{padding:16px}.fcard{padding:22px}}
+@media (max-width:560px){.qtools{width:100%}.timer{text-align:left;min-width:0;margin-right:auto}main{padding:18px 14px 64px}.panel{padding:16px}.fc-face{padding:22px}.fc-actions .btn{min-width:0;flex:1}}
 .sitefoot{max-width:1080px;margin:-48px auto 0;padding:0 20px 30px;font-size:12.5px;line-height:1.55;color:var(--faint)}
 .sitefoot p{margin:0;padding-top:16px}
 .linkbtn{background:none;border:0;padding:0;font:inherit;color:var(--accent-ink);text-decoration:underline;text-underline-offset:2px;cursor:pointer}
@@ -378,6 +407,8 @@ function uid() { const b = new Uint8Array(6); crypto.getRandomValues(b); return 
 function fmtDur(sec) { sec = Math.max(0, Math.round(sec)); const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60), s = sec % 60; return h ? `${h}:${pad(m)}:${pad(s)}` : `${m}:${pad(s)}`; }
 function fmtHours(sec) { const m = Math.round(sec / 60); return m < 60 ? `${m}m` : `${Math.floor(m / 60)}h ${pad(m % 60)}m`; }
 function fmtDate(ts) { return new Date(ts).toLocaleString(undefined, { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }); }
+/* A calendar day in the visitor's own time zone, e.g. 2026-11-23. */
+const dayKey = (d = new Date()) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 const areaName = (exam, id) => { const a = CONFIG.exams[exam] && CONFIG.exams[exam].areaMap.get(id); return a ? a.name : id; };
 
 /* DOM builder. Text is always inserted as text nodes, never parsed as HTML. */
@@ -512,6 +543,23 @@ function cleanCards(obj) {
   }
   return out;
 }
+/* Flash-card stats per exam: the current streak, the best streak, and right/wrong counts per day. */
+function cleanFlash(o) {
+  const out = {}, int = v => (Number.isInteger(v) && v >= 0 && v < 1e6 ? v : 0);
+  for (const ex of EXAM_IDS) {
+    const src = o && typeof o === 'object' && !Array.isArray(o) && o[ex] && typeof o[ex] === 'object' ? o[ex] : {};
+    const days = Object.create(null);
+    if (src.days && typeof src.days === 'object' && !Array.isArray(src.days)) {
+      for (const k of Object.keys(src.days).filter(k => /^\d{4}-\d{2}-\d{2}$/.test(k)).sort().slice(-120)) {
+        const v = src.days[k];
+        if (Array.isArray(v) && v.length === 2 && v.every(n => Number.isInteger(n) && n >= 0 && n < 1e6)) days[k] = [v[0], v[1]];
+      }
+    }
+    out[ex] = { cur: int(src.cur), best: Math.max(int(src.best), int(src.cur)), days };
+  }
+  return out;
+}
+function pruneDays(days) { const ks = Object.keys(days).sort(); ks.slice(0, Math.max(0, ks.length - 120)).forEach(k => { delete days[k]; }); }
 function cleanSettings(o) {
   const s = Object.assign({}, DEFAULT_SETTINGS);
   if (!o || typeof o !== 'object') return s;
@@ -543,6 +591,7 @@ function loadSession() {
 /* ------------------------------- state ------------------------------- */
 let history = (Array.isArray(store.get('history', [])) ? store.get('history', []) : []).map(cleanAttempt).filter(Boolean);
 let cards = cleanCards(store.get('cards', null));
+let fstats = cleanFlash(store.get('flash', null));
 const settings = cleanSettings(store.get('settings', null));
 const S = {
   exam: EXAM_IDS.includes(store.get('exam', '')) ? store.get('exam', '') : 'CBAP',
@@ -552,6 +601,7 @@ const S = {
 };
 const saveHistory = () => store.set('history', history);
 const saveCards = () => store.set('cards', cards);
+const saveFlash = () => store.set('flash', fstats);
 const saveSettings = () => store.set('settings', settings);
 const saveSession = () => { if (S.session) store.set('session', S.session); };
 
@@ -785,7 +835,7 @@ function viewHome() {
     card(`${cfg.areaLabel} focus`, `${CONFIG.sizes.area} questions from one ${cfg.areaLabel.toLowerCase()}.`,
       [areaSel, btn('Start', () => start('area', { area: areaSel.value }), 'primary', { disabled: !pool.length })]),
     card('Hard 10', `${CONFIG.sizes.hard} hard questions. ${hardN} hard ${ex} questions in the bank.`, btn('Start', () => start('hard'), 'primary', { disabled: !hardN })),
-    card('Flash cards', `Question on the front, answer and why on the back. Mark each card Got it or Again. ${known}/${fcPool.length} known.`,
+    card('Flash cards', `See the question, turn the card over, and say if you got it right. Builds a streak and a 7-day chart. ${known}/${fcPool.length} known.`,
       btn('Open cards', () => { S.fc = null; go('flash'); }, 'primary', { disabled: !fcPool.length }))));
   root.append(h('p', { class: 'small muted' }, settings.instant
     ? 'Practice modes show the answer after each question; the full exam shows everything at the end. Change this in Settings.'
@@ -820,7 +870,8 @@ function viewQuiz() {
     h('div', { class: 'qtools' },
       h('span', { id: 'timer', class: 'timer', title: s.limitMs ? 'Time remaining' : 'Time elapsed' }, timerText(s)),
       S.endPanel ? null : h('button', { type: 'button', class: 'btn sm' + (s.flags[i] ? ' flagged' : ''), 'aria-pressed': String(!!s.flags[i]), title: 'Flag for review (F)', onclick: toggleFlag }, s.flags[i] ? '⚑ Flagged' : '⚐ Flag'),
-      S.endPanel ? null : btn(s.instant ? 'Finish' : 'End test', () => { S.endPanel = true; render(); window.scrollTo(0, 0); }, 'sm'),
+      S.endPanel ? null : btn(s.instant ? 'Finish' : 'End test', () => { S.endPanel = true; render(); window.scrollTo(0, 0); }, 'sm',
+        { title: s.instant ? 'Finish now: see what you answered, flagged or skipped, then your results' : 'End the exam: review your flagged and unanswered questions, then submit' }),
       btn('Exit', () => go('home'), 'sm ghost', { title: 'Leave and resume later' }))));
   if (s.note && i === 0 && !S.endPanel) root.append(h('div', { class: 'notice' }, s.note));
   root.append(S.endPanel ? endPanel(s) : questionPanel(s, i, q), navigator(s));
@@ -897,7 +948,10 @@ function navigator(s) {
     const state = (s.answers[k] >= 0 ? 'answered' : 'unanswered') + (s.flags[k] ? ', flagged' : '');
     g.append(h('button', { type: 'button', class: cls.trim() || null, 'aria-label': `Question ${k + 1}, ${state}`, 'aria-current': k === s.cur ? 'step' : null, onclick: () => jump(k) }, String(k + 1)));
   });
-  d.append(g, h('div', { class: 'legend small muted' }, h('span', null, h('i', { class: 'a' }), 'answered'), h('span', null, h('i', { class: 'f' }), 'flagged'), h('span', null, h('i'), 'unanswered')));
+  const keys = s.instant
+    ? [['ok', 'right'], ['no', 'wrong'], ['a', 'answered, not checked'], ['f', 'flagged'], ['', 'not answered']]
+    : [['a', 'answered'], ['f', 'flagged'], ['', 'not answered']];
+  d.append(g, h('div', { class: 'legend small muted' }, keys.map(([c, label]) => h('span', null, h('i', { class: c || null }), label))));
   return d;
 }
 
@@ -1117,11 +1171,37 @@ function deleteAttempt(id) {
 }
 
 /* ---------------------------- flash cards ---------------------------- */
+/* The card shows the question. "Show answer" (or a click) turns it over. "I got it right" or "I got it wrong" rates it
+   and moves on; a wrong card comes back a few cards later. Right answers in a row build a streak, and every rating
+   counts toward today's bar in the 7-day chart. */
+const FC_BACK_AFTER = 4;
 function newDeck(ex, area) {
   const pool = bank.pools[ex].filter(q => !q.caseId && (area === 'ALL' || q.area === area));
   const learning = [], fresh = [], known = [];
   pool.forEach(q => { const c = cards[q.id]; (c ? (c.r === 'a' ? learning : known) : fresh).push(q.id); });
-  return { exam: ex, area, queue: shuffle(learning).concat(shuffle(fresh), shuffle(known)), idx: 0, flipped: false, round: { k: 0, a: 0 } };
+  return { exam: ex, area, queue: shuffle(learning).concat(shuffle(fresh), shuffle(known)), idx: 0, flipped: false, round: { k: 0, a: 0 }, anim: null, beat: false };
+}
+const flashTip = d => (d.flipped
+  ? 'Did you get it right? Click the green or the red button. The next card follows.'
+  : 'Answer the question in your head, then click Show answer.');
+function flashActions(d) {
+  if (!d.flipped) return [btn('Show answer', flipCard, 'primary fc-show')];
+  return [btn('✗ I got it wrong', () => rateCard(false), 'fc-wrong'), btn('✓ I got it right', () => rateCard(true), 'fc-right')];
+}
+/* Turns the card over in place, so the flip animates; only the buttons and the tip are redrawn. */
+function flipCard() {
+  const d = S.fc; if (!d || d.idx >= d.queue.length) return;
+  d.flipped = !d.flipped;
+  const card = document.querySelector('.fc3d'), act = document.getElementById('fcActions'), tip = document.getElementById('fcTip');
+  if (!card || !act || !tip) { render(true); return; }
+  card.classList.remove('fc-next');
+  card.classList.toggle('flipped', d.flipped);
+  card.setAttribute('aria-label', d.flipped ? 'Answer side of the card' : 'Question side of the card');
+  card.querySelector('.fc-front').setAttribute('aria-hidden', String(d.flipped));
+  card.querySelector('.fc-back').setAttribute('aria-hidden', String(!d.flipped));
+  act.replaceChildren(...flashActions(d));
+  tip.textContent = flashTip(d);
+  card.focus({ preventScroll: true });
 }
 function viewFlash() {
   const ex = S.exam, cfg = CONFIG.exams[ex];
@@ -1135,34 +1215,100 @@ function viewFlash() {
   sel.value = S.fcArea;
   const root = h('div', { class: 'stack' });
   root.append(h('div', { class: 'spread' },
-    h('div', null, h('div', { class: 'eyebrow' }, `${ex} · flash cards`), h('h1', null, 'Flash cards'), h('p', { class: 'small muted mono' }, `known ${st.k} · learning ${st.a} · new ${st.n}`)),
+    h('div', null, h('div', { class: 'eyebrow' }, `${ex} · flash cards`), h('h1', null, 'Flash cards'),
+      h('p', { class: 'small muted mono' }, `known ${st.k} · still learning ${st.a} · new ${st.n}`)),
     h('div', { class: 'row' }, sel, btn('Restart deck', () => { S.fc = newDeck(ex, S.fcArea); render(); }, 'sm'), btn('Back', () => go('home'), 'sm ghost'))));
-  if (!d.queue.length) { root.append(h('div', { class: 'panel muted' }, 'No cards for this selection.')); return root; }
-  if (d.idx >= d.queue.length) {
-    root.append(h('section', { class: 'panel stack' }, h('h2', null, 'Deck complete'), h('p', null, `This round: ${d.round.k} got it · ${d.round.a} again.`),
-      h('div', { class: 'row' }, btn('Go again', () => { S.fc = newDeck(ex, S.fcArea); render(); }, 'primary'), btn('Back to practice', () => go('home'), 'ghost'))));
-    return root;
+  let main;
+  if (!d.queue.length) main = h('div', { class: 'panel muted' }, 'No cards for this selection.');
+  else if (d.idx >= d.queue.length) {
+    main = h('section', { class: 'panel stack' }, h('h2', null, 'Deck complete'), h('p', null, `This round: ${d.round.k} right · ${d.round.a} wrong.`),
+      h('div', { class: 'row' }, btn('Go again', () => { S.fc = newDeck(ex, S.fcArea); render(); }, 'primary'), btn('Back to practice', () => go('home'), 'ghost')));
+  } else {
+    const q = bank.byId.get(d.queue[d.idx]);
+    const meta = `Card ${d.idx + 1} of ${d.queue.length} · ${areaName(ex, q.area)} · ${q.level}`;
+    const card = h('div', { class: 'fc3d' + (d.flipped ? ' flipped' : '') + (d.anim === 'next' ? ' fc-next' : ''), role: 'button', tabindex: '0',
+        'aria-label': d.flipped ? 'Answer side of the card' : 'Question side of the card', onclick: flipCard },
+      h('div', { class: 'fc-inner' },
+        h('div', { class: 'fc-face fc-front', 'aria-hidden': String(d.flipped) },
+          h('div', { class: 'fc-top' }, h('span', { class: 'fc-tag' }, 'Question'), h('span', { class: 'fc-meta' }, meta)),
+          h('p', { class: 'fq' }, q.question),
+          h('span', { class: 'hint' }, 'Click Show answer, or the card, to turn it over.')),
+        h('div', { class: 'fc-face fc-back', 'aria-hidden': String(!d.flipped) },
+          h('div', { class: 'fc-top' }, h('span', { class: 'fc-tag ans' }, 'Answer'), h('span', { class: 'fc-meta' }, meta)),
+          h('p', { class: 'fa' }, q.options[q.answer]),
+          h('p', { class: 'fw' }, q.why),
+          q.ref ? h('p', { class: 'fw small' }, 'Source: ' + q.ref) : null,
+          h('span', { class: 'hint' }, 'Click the card to see the question again.'))));
+    d.anim = null;
+    main = h('div', { class: 'stack fc-main' }, card,
+      h('p', { id: 'fcTip', class: 'fc-tip', 'aria-live': 'polite' }, flashTip(d)),
+      h('div', { id: 'fcActions', class: 'row fc-actions' }, flashActions(d)),
+      h('p', { class: 'small muted' }, 'Keys: Space turns the card over · → I got it right · ← I got it wrong. Cards you get wrong come back a few cards later.'));
   }
-  const q = bank.byId.get(d.queue[d.idx]);
-  const flip = () => { d.flipped = !d.flipped; render(true); const c = document.querySelector('.fcard'); if (c) c.focus({ preventScroll: true }); };
-  root.append(h('button', { type: 'button', class: 'fcard' + (d.flipped ? ' back' : ''), 'aria-live': 'polite', onclick: flip },
-    h('span', { class: 'eyebrow' }, d.flipped ? 'Answer' : `Card ${d.idx + 1} of ${d.queue.length} · ${areaName(ex, q.area)} · ${q.level}`),
-    d.flipped ? [h('span', { class: 'fa' }, q.options[q.answer]), h('span', { class: 'fw' }, q.why), q.ref ? h('span', { class: 'fw small' }, 'Source: ' + q.ref) : null] : h('span', { class: 'fq' }, q.question),
-    h('span', { class: 'hint' }, d.flipped ? 'Click to see the question again' : 'Click or press Space to reveal')));
-  root.append(h('div', { class: 'row' },
-    btn('Again (1)', () => rateCard(false), '', { disabled: !d.flipped }),
-    btn('Got it (2)', () => rateCard(true), 'primary', { disabled: !d.flipped }),
-    h('span', { class: 'small muted' }, 'Again brings the card back a few cards later.')));
+  root.append(h('div', { class: 'fc-layout' }, main, flashStats(ex, d)));
   return root;
 }
-function rateCard(known) {
+function flashStats(ex, d) {
+  const st = fstats[ex], today = st.days[dayKey()] || [0, 0];
+  const newBest = d && d.beat && st.cur > 0 && st.cur === st.best;
+  return h('section', { class: 'panel stack fc-stats', 'aria-label': 'Your flash-card progress' },
+    h('div', { class: 'kpis three' },
+      h('div', { class: 'kpi streak' + (st.cur ? ' on' : '') }, h('div', { class: 'eyebrow' }, 'Streak'), h('div', { class: 'v' }, String(st.cur)), h('div', { class: 's' }, newBest ? 'New best!' : 'right in a row')),
+      h('div', { class: 'kpi' }, h('div', { class: 'eyebrow' }, 'Best'), h('div', { class: 'v' }, String(st.best)), h('div', { class: 's' }, 'in a row')),
+      h('div', { class: 'kpi' }, h('div', { class: 'eyebrow' }, 'Today'), h('div', { class: 'v' }, String(today[0] + today[1])), h('div', { class: 's' }, `${today[0]} right · ${today[1]} wrong`))),
+    h('div', null, h('h2', { style: 'margin:0 0 4px' }, 'Last 7 days'), h('p', { class: 'small muted' }, 'Cards you marked right and wrong each day. Point at a day for the numbers.')),
+    weekChart(st),
+    h('div', { class: 'legend small muted' }, h('span', null, h('i', { class: 'lr' }), 'right'), h('span', null, h('i', { class: 'lw' }), 'wrong')));
+}
+/* Top corners rounded, bottom square: bars stand on the baseline. */
+function barPath(x, y, w, hgt, r) {
+  r = Math.min(r, w / 2, hgt);
+  if (!r) return `M${x},${y + hgt}V${y}H${x + w}V${y + hgt}Z`;
+  return `M${x},${y + hgt}V${y + r}Q${x},${y} ${x + r},${y}H${x + w - r}Q${x + w},${y} ${x + w},${y + r}V${y + hgt}Z`;
+}
+/* Right (green, at the bottom) and wrong (red, on top) per day for the last 7 days, today last. */
+function weekChart(st) {
+  const W = 330, H = 170, M = { t: 22, r: 6, b: 26, l: 6 }, iw = W - M.l - M.r, ih = H - M.t - M.b, gap = 2;
+  const noon = new Date(); noon.setHours(12, 0, 0, 0);
+  const days = range(7).map(i => {
+    const dt = new Date(noon); dt.setDate(noon.getDate() - (6 - i));
+    const v = st.days[dayKey(dt)] || [0, 0];
+    return { dt, r: v[0], w: v[1], today: i === 6, label: i === 6 ? 'Today' : dt.toLocaleDateString('en-GB', { weekday: 'short' }) };
+  });
+  const max = Math.max(4, ...days.map(x => x.r + x.w)), slot = iw / 7, bw = Math.min(28, slot * 0.56), y0 = M.t + ih;
+  const svg = sv('svg', { viewBox: `0 0 ${W} ${H}`, class: 'chart wk', role: 'img',
+    'aria-label': 'Flash cards over the last 7 days. ' + days.map(x => `${x.label}: ${x.r} right, ${x.w} wrong`).join('; ') + '.' });
+  svg.append(sv('line', { x1: M.l, x2: W - M.r, y1: y0 + 0.5, y2: y0 + 0.5, class: 'grid' }));
+  days.forEach((x, i) => {
+    const cx = M.l + slot * i + slot / 2, x0 = cx - bw / 2, hr = (x.r / max) * ih, hw = (x.w / max) * ih;
+    if (x.r) svg.append(sv('path', { d: barPath(x0, y0 - hr, bw, hr, x.w ? 0 : 4), class: 'bar-r' }));
+    const top = y0 - hr - (x.r && x.w ? gap : 0);
+    if (x.w) svg.append(sv('path', { d: barPath(x0, top - hw, bw, hw, 4), class: 'bar-w' }));
+    if (x.today && x.r + x.w) svg.append(sv('text', { x: cx, y: top - hw - 6, 'text-anchor': 'middle', class: 'val' }, String(x.r + x.w)));
+    svg.append(sv('text', { x: cx, y: H - 8, 'text-anchor': 'middle', class: 'axis' + (x.today ? ' today' : '') }, x.label));
+    const tip = [x.today ? 'Today' : x.dt.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'short' }), `${x.r} right · ${x.w} wrong`];
+    const hit = sv('rect', { x: M.l + slot * i, y: 0, width: slot, height: H, fill: 'transparent' });
+    hit.addEventListener('pointermove', e => showTip(tip, e.clientX, e.clientY));
+    hit.addEventListener('pointerleave', hideTip);
+    svg.append(hit);
+  });
+  if (days.every(x => !x.r && !x.w)) svg.append(sv('text', { x: W / 2, y: M.t + ih / 2, 'text-anchor': 'middle', class: 'axis' }, 'No cards marked yet this week'));
+  return svg;
+}
+function rateCard(right) {
   const d = S.fc; if (!d || !d.flipped || d.idx >= d.queue.length) return;
   const id = d.queue[d.idx], old = cards[id];
-  cards[id] = { r: known ? 'k' : 'a', n: (old ? old.n : 0) + 1, t: Date.now() };
+  cards[id] = { r: right ? 'k' : 'a', n: (old ? old.n : 0) + 1, t: Date.now() };
   saveCards();
-  if (!known) d.queue.splice(Math.min(d.idx + 4, d.queue.length), 0, id);
-  d.round[known ? 'k' : 'a']++; d.idx++; d.flipped = false;
+  const st = fstats[d.exam], key = dayKey(), day = st.days[key] || [0, 0];
+  day[right ? 0 : 1] = Math.min(day[right ? 0 : 1] + 1, 999999); st.days[key] = day; pruneDays(st.days);
+  if (right) { st.cur++; if (st.cur > st.best) { if (st.best >= 3) d.beat = true; st.best = st.cur; } }   // "New best!" only for beating a best of 3 or more
+  else { st.cur = 0; d.beat = false; }
+  saveFlash();
+  if (!right) d.queue.splice(Math.min(d.idx + FC_BACK_AFTER, d.queue.length), 0, id);
+  d.round[right ? 'k' : 'a']++; d.idx++; d.flipped = false; d.anim = 'next';
   render(true);
+  const c = document.querySelector('.fc3d'); if (c) c.focus({ preventScroll: true });
 }
 
 /* ------------------------------ settings ------------------------------ */
@@ -1191,7 +1337,29 @@ function viewAbout() {
     sec('Your data stays with you',
       'Your answers, results and flash-card ratings are stored only in this browser (local storage). The simulator has no accounts, no tracking and no cookies, and it sends nothing to a server. The site’s host may keep standard technical logs of visits. Clearing your browser data deletes your history, so export it if you want a backup.'),
     sec('No warranty',
-      'The simulator is provided as is, without any warranty. The authors aren’t responsible for exam results, study or career decisions, or anything else that follows from using it.'));
+      'The simulator is provided as is, without any warranty. The authors aren’t responsible for exam results, study or career decisions, or anything else that follows from using it.'),
+    bankSection());
+}
+/* What's in the question bank: read-only, so it lives on the About page, not in Settings. */
+function bankSection() {
+  const tb = h('tbody');
+  for (const ex of EXAM_IDS) {
+    const cfg = CONFIG.exams[ex], pool = bank.pools[ex], need = allocate(cfg.questions, cfg.areas);
+    cfg.areas.forEach((a, k) => {
+      const inArea = pool.filter(q => q.area === a.id), c = { easy: 0, mid: 0, hard: 0 }; inArea.forEach(q => { c[q.level]++; });
+      tb.append(h('tr', null, h('td', { class: 'mono strong' }, k === 0 ? ex : ''), h('td', null, a.name), h('td', { class: 'num' }, a.weight + '%'),
+        h('td', { class: 'num' }, String(need[a.id])), h('td', { class: 'num' }, String(inArea.length)), h('td', { class: 'num small' }, `${c.easy} · ${c.mid} · ${c.hard}`)));
+    });
+  }
+  const issues = [];
+  if (bank.errors.length) issues.push(h('details', { open: true }, h('summary', { class: 'strong', style: 'color:var(--bad-ink);cursor:pointer' }, `${bank.errors.length} question(s) skipped because of errors`), h('ul', { class: 'plain' }, bank.errors.slice(0, 200).map(e => h('li', null, e)))));
+  if (bank.warnings.length) issues.push(h('details', null, h('summary', { class: 'strong', style: 'cursor:pointer' }, `${bank.warnings.length} warning(s)`), h('ul', { class: 'plain' }, bank.warnings.slice(0, 200).map(e => h('li', null, e)))));
+  return h('section', { class: 'panel stack about', id: 'bank' }, h('h2', null, 'What’s in the question bank'),
+    h('p', { class: 'muted' }, 'The questions are built into the simulator, so they can’t be changed here. A full exam draws from them using IIBA’s weighting of each area. Spotted a mistake? Report it on the project’s GitHub page.'),
+    bank.fatal ? h('div', { class: 'notice bad' }, bank.fatal) : h('p', { class: 'small mono muted' }, `version ${bank.version || 'n/a'} · ${bank.byId.size} questions · ${bank.cases.size} case studies`),
+    h('div', { class: 'tbl-wrap' }, h('table', { class: 'tbl' }, h('thead', null, h('tr', null, h('th', null, 'Exam'), h('th', null, 'Area'), h('th', { class: 'num' }, 'Weight'), h('th', { class: 'num' }, 'Full exam needs'), h('th', { class: 'num' }, 'In bank'), h('th', { class: 'num' }, 'Easy · mid · hard'))), tb)),
+    issues.length ? issues : null);
+
 }
 
 function viewSettings() {
@@ -1207,44 +1375,27 @@ function viewSettings() {
     h('div', null, h('div', { class: 'row' }, tgt, h('span', { class: 'strong' }, 'Practice target score (%)')),
       h('p', { class: 'small muted', style: 'margin-top:6px' }, 'IIBA reports pass/fail with performance indicators and does not publish a pass mark. 70% is a common community estimate, not an official number.'))));
 
-  const bytes = new Blob([JSON.stringify(history), JSON.stringify(cards)]).size;
+  const bytes = new Blob([JSON.stringify(history), JSON.stringify(cards), JSON.stringify(fstats)]).size;
   root.append(h('section', { class: 'panel stack' }, h('h2', { style: 'margin:0' }, 'Your data'),
     h('p', { class: 'muted' }, 'Results stay in this browser only (local storage). Nothing is sent anywhere. Clearing browser data deletes them, so export regularly and import on another device to continue there.'),
     h('p', { class: 'small mono muted' }, `${history.length} attempts stored · ${Object.keys(cards).length} flash-card ratings · ${(bytes / 1024).toFixed(1)} KB`),
     h('div', { class: 'row' }, btn('Export history', exportData), btn('Import history', pickImport), btn('Clear all data', clearAll, 'ghost danger'))));
 
-  const tb = h('tbody');
-  for (const ex of EXAM_IDS) {
-    const cfg = CONFIG.exams[ex], pool = bank.pools[ex], need = allocate(cfg.questions, cfg.areas);
-    cfg.areas.forEach((a, k) => {
-      const inArea = pool.filter(q => q.area === a.id), c = { easy: 0, mid: 0, hard: 0 }; inArea.forEach(q => { c[q.level]++; });
-      tb.append(h('tr', null, h('td', { class: 'mono strong' }, k === 0 ? ex : ''), h('td', null, a.name), h('td', { class: 'num' }, a.weight + '%'),
-        h('td', { class: 'num' }, String(need[a.id])), h('td', { class: 'num' }, String(inArea.length)), h('td', { class: 'num small' }, `${c.easy} · ${c.mid} · ${c.hard}`)));
-    });
-  }
-  const issues = [];
-  if (bank.errors.length) issues.push(h('details', { open: true }, h('summary', { class: 'strong', style: 'color:var(--bad-ink);cursor:pointer' }, `${bank.errors.length} question(s) skipped because of errors`), h('ul', { class: 'plain' }, bank.errors.slice(0, 200).map(e => h('li', null, e)))));
-  if (bank.warnings.length) issues.push(h('details', null, h('summary', { class: 'strong', style: 'cursor:pointer' }, `${bank.warnings.length} warning(s)`), h('ul', { class: 'plain' }, bank.warnings.slice(0, 200).map(e => h('li', null, e)))));
-  root.append(h('section', { class: 'panel stack' }, h('h2', { style: 'margin:0' }, 'Question bank'),
-    bank.fatal ? h('div', { class: 'notice bad' }, bank.fatal) : h('p', { class: 'small mono muted' }, `version ${bank.version || 'n/a'} · ${bank.byId.size} questions · ${bank.cases.size} case studies`),
-    h('div', { class: 'tbl-wrap' }, h('table', { class: 'tbl' }, h('thead', null, h('tr', null, h('th', null, 'Exam'), h('th', null, 'Area'), h('th', { class: 'num' }, 'Weight'), h('th', { class: 'num' }, 'Full exam needs'), h('th', { class: 'num' }, 'In bank'), h('th', { class: 'num' }, 'Easy · mid · hard'))), tb)),
-    issues.length ? issues : h('p', { class: 'small muted' }, 'No problems found in questions.js.')));
-
   root.append(h('section', { class: 'panel stack' }, h('h2', { style: 'margin:0' }, 'About'),
-    h('p', { class: 'small muted' }, 'Free, independent practice tool, not affiliated with or endorsed by IIBA. Practice questions only; scores don’t predict exam results.'),
+    h('p', { class: 'small muted' }, 'Free, independent practice tool, not affiliated with or endorsed by IIBA. Practice questions only; scores don’t predict exam results. The About page also shows what’s in the question bank.'),
     h('div', { class: 'row' }, btn('Read the full disclaimer', () => go('about')))));
   return root;
 }
 function clearAll() {
   if (!confirm('Delete ALL results, flash-card progress and any attempt in progress from this browser? Export first if you want a backup.')) return;
-  clock.kill(); history = []; cards = Object.create(null); S.session = null; S.fc = null;
-  ['history', 'cards', 'session'].forEach(k => store.del(k));
+  clock.kill(); history = []; cards = Object.create(null); fstats = cleanFlash(null); S.session = null; S.fc = null;
+  ['history', 'cards', 'session', 'flash'].forEach(k => store.del(k));
   toast('All data cleared.'); render();
 }
 
 /* --------------------------- import / export --------------------------- */
 function exportData() {
-  const data = { app: CONFIG.appId, schema: CONFIG.schema, exportedAt: new Date().toISOString(), bankVersion: bank.version, history, cards };
+  const data = { app: CONFIG.appId, schema: CONFIG.schema, exportedAt: new Date().toISOString(), bankVersion: bank.version, history, cards, flash: fstats };
   const url = URL.createObjectURL(new Blob([JSON.stringify(data)], { type: 'application/json' }));
   const a = h('a', { href: url, download: `ba-exam-sim-history-${new Date().toISOString().slice(0, 10)}.json` });
   document.body.append(a); a.click(); a.remove();
@@ -1277,6 +1428,16 @@ function importFile(file) {
     const inc = cleanCards(data && data.cards);
     for (const k of Object.keys(inc)) if (!cards[k] || cards[k].t < inc[k].t) cards[k] = inc[k];
     saveCards();
+    if (data && data.flash) {   // streaks: keep the best; days: keep the higher count, so importing the same file twice doesn't double it
+      const inf = cleanFlash(data.flash);
+      for (const ex of EXAM_IDS) {
+        const a = fstats[ex], b = inf[ex];
+        a.best = Math.max(a.best, b.best);
+        for (const k of Object.keys(b.days)) { const x = a.days[k] || [0, 0], y = b.days[k]; a.days[k] = [Math.max(x[0], y[0]), Math.max(x[1], y[1])]; }
+        pruneDays(a.days);
+      }
+      saveFlash();
+    }
     toast(`Imported ${added} attempt${added === 1 ? '' : 's'}` + (dup ? `, ${dup} already here` : '') + (invalid ? `, ${invalid} invalid skipped` : '') + '.', added || dup ? '' : 'bad');
     render();
   };
@@ -1309,9 +1470,9 @@ document.addEventListener('keydown', e => {
     else if (k === 'ArrowLeft' || k === 'p') { e.preventDefault(); move(-1); }
     else if (k === 'Enter' && s.instant && !s.checked[i] && s.answers[i] >= 0 && tag !== 'BUTTON') { e.preventDefault(); check(); }
   } else if (S.view === 'flash' && S.fc) {
-    if (k === ' ' && tag !== 'BUTTON') { e.preventDefault(); const c = document.querySelector('.fcard'); if (c) c.click(); }
-    else if (k === '1') rateCard(false);
-    else if (k === '2') rateCard(true);
+    if ((k === ' ' || k === 'Enter') && tag !== 'BUTTON') { e.preventDefault(); flipCard(); }
+    else if (S.fc.flipped && (k === 'ArrowRight' || k === '2')) { e.preventDefault(); rateCard(true); }
+    else if (S.fc.flipped && (k === 'ArrowLeft' || k === '1')) { e.preventDefault(); rateCard(false); }
   }
 });
 window.addEventListener('pagehide', () => { if (S.view === 'quiz') clock.sync(); saveSession(); });

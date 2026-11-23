@@ -1,8 +1,35 @@
-# BA//SIM: free practice for the IIBA exams
+<p align="center">
+  <a href="https://keyboardmike.github.io/BA-Exam-Sim/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.png">
+      <img src="assets/banner-light.png" alt="BA//SIM: free practice for the IIBA exams. ECBA, CCBA and CBAP, in your browser. No install, no account." width="100%">
+    </picture>
+  </a>
+</p>
+
+<h3 align="center"><a href="https://keyboardmike.github.io/BA-Exam-Sim/">Open the simulator →</a></h3>
+
+<p align="center">
+  <img alt="Free" src="https://img.shields.io/badge/price-free-1f4fd1?style=flat-square">
+  <img alt="Non-commercial" src="https://img.shields.io/badge/use-non--commercial-1f4fd1?style=flat-square">
+  <img alt="Works offline" src="https://img.shields.io/badge/works-offline-1f4fd1?style=flat-square">
+  <img alt="No tracking" src="https://img.shields.io/badge/tracking-none-1f4fd1?style=flat-square">
+  <img alt="ECBA, CCBA, CBAP" src="https://img.shields.io/badge/exams-ECBA%20%C2%B7%20CCBA%20%C2%B7%20CBAP-0e7aa8?style=flat-square">
+  <img alt="1,076 questions" src="https://img.shields.io/badge/questions-1%2C076-0e7aa8?style=flat-square">
+</p>
 
 A free exam simulator for business analysts preparing for the **ECBA**, **CCBA** and **CBAP**. It runs in your browser, with nothing to install and no account, and your results stay on your own device.
 
-**Open the simulator:** https://keyboardmike.github.io/BA-Exam-Sim/
+<table>
+  <tr>
+    <td width="50%" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/screen-practice-dark.png"><img src="assets/screen-practice-light.png" alt="A practice question after checking the answer: the wrong choice in red, the right one in green, the explanation and the BABOK source" width="100%"></picture><br><b>Practice with explanations.</b> Every answer comes with the why and the BABOK section it's based on.</td>
+    <td width="50%" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/screen-exam-dark.png"><img src="assets/screen-exam-light.png" alt="A full CBAP mock exam: question 7 of 120, the countdown, and the question navigator with two flagged questions" width="100%"></picture><br><b>Full mock exams.</b> The real number of questions and the real time, with flags and a review before you submit.</td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/screen-flashcards-dark.png"><img src="assets/screen-flashcards-light.png" alt="Flash cards: the answer side of a card, the red and green buttons, a streak of 6 and a chart of the last 7 days" width="100%"></picture><br><b>Flash cards with a streak.</b> Turn the card over, say if you got it right, and watch your week build up.</td>
+    <td width="50%" valign="top"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/screen-dashboard-dark.png"><img src="assets/screen-dashboard-light.png" alt="The dashboard: attempts, accuracy, best full exam, study time and a score trend climbing from 50% to 80%" width="100%"></picture><br><b>See your progress.</b> Scores over time, accuracy by area, and your weakest area marked.</td>
+  </tr>
+</table>
 
 ---
 
@@ -51,7 +78,7 @@ Keep going until your results are evenly spread across every area, at a level yo
 | **Weak spots** | 10 questions from your weakest area, starting with the ones you got wrong. | You've done some practice and want to fix what isn't sticking. |
 | **Knowledge area focus** (domain focus for the ECBA) | 20 questions from one area you choose. | You've just studied a chapter. |
 | **Hard 10** | 10 of the hardest questions. | You feel confident and want a challenge. |
-| **Flash cards** | The question on the front; the answer, the why and the source on the back. Mark each card "Got it" or "Again". | You want to learn terms and concepts on the go. |
+| **Flash cards** | See the question, turn the card over, and say whether you got it right. Builds a streak, with a chart of the last 7 days. | You want to learn terms and concepts on the go. |
 
 After any test, **Retry incorrect** runs the questions you missed again.
 
@@ -62,7 +89,7 @@ After any test, **Retry incorrect** runs the questions you missed again.
 1. Open the simulator and choose your exam in the tabs at the top: **ECBA**, **CCBA** or **CBAP**.
 2. Read the **Before you start** note, then click **Got it**.
 3. Click **Start drill** on the Quick drill card.
-4. Pick an answer and click **Check answer**. Read the explanation and note the BABOK section under it. That's where to look if it didn't click.
+4. Pick an answer and click **Check answer**. Read the explanation and note the BABOK section under it. That's where to look if it didn't click. In the **All questions** panel, checked questions turn green when you were right and red when you were wrong.
 5. Click **Next** until you reach the end, then **See results**: your score, your score per area, and every question with its answer.
 6. Click **Retry incorrect** to go again on the ones you missed, or open the **Dashboard** to see your progress.
 
@@ -83,8 +110,10 @@ After any test, **Retry incorrect** runs the questions you missed again.
 
 ### Use flash cards
 - Click **Open cards**, and choose all areas or just one.
-- Click the card (or press **Space**) to flip it. Mark it **Got it** or **Again**. "Again" brings the card back a few cards later.
-- Cards you know move to the back of the deck next time.
+- Read the question and answer it in your head. Then click **Show answer**, and the card turns over.
+- Be honest with yourself: click the green **I got it right** or the red **I got it wrong**. The next card follows straight away.
+- Cards you got wrong come back a few cards later. Cards you know move to the back of the deck next time.
+- Next to the card you'll see your **streak** (right answers in a row), your best streak, today's right and wrong, and a chart of the **last 7 days**.
 
 ### Read your dashboard
 - **Score trend:** your scores over time. The dashed line is your practice target.
@@ -117,9 +146,9 @@ The button at the top right switches between automatic, dark and light mode.
 
 | Flash cards | |
 |---|---|
-| **Space** | Flip the card |
-| **1** | Again |
-| **2** | Got it |
+| **Space** | Turn the card over |
+| **→** | I got it right |
+| **←** | I got it wrong |
 
 ---
 
@@ -140,6 +169,7 @@ Want to practise without internet, say on a plane? Download this repository (**C
 - Each explanation is in plain words, not copied from the Guide, and cites the section it's based on, so you can check it yourself.
 - The wrong answers were reviewed to be believable, so test-taking tricks like "pick the longest answer" don't work.
 - They are **not** real exam questions, and they may not match the real exam's wording or difficulty.
+- The **About** page shows how many questions each exam and area has.
 
 **Found a mistake?** Please open an [Issue](../../issues) with the question text, the answer you think is right, and the BABOK section. If the simulator and the BABOK Guide disagree, the BABOK Guide is right.
 
