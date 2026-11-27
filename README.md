@@ -16,6 +16,7 @@
   <img alt="No tracking" src="https://img.shields.io/badge/tracking-none-1f4fd1?style=flat-square">
   <img alt="ECBA, CCBA, CBAP" src="https://img.shields.io/badge/exams-ECBA%20%C2%B7%20CCBA%20%C2%B7%20CBAP-0e7aa8?style=flat-square">
   <img alt="1,076 questions" src="https://img.shields.io/badge/questions-1%2C076-0e7aa8?style=flat-square">
+  <img alt="50 match puzzles" src="https://img.shields.io/badge/match%20puzzles-50-0e7aa8?style=flat-square">
 </p>
 
 A free exam simulator for business analysts preparing for the **ECBA**, **CCBA** and **CBAP**. It runs in your browser, with nothing to install and no account, and your results stay on your own device.
@@ -65,11 +66,14 @@ Keep going until your results are evenly spread across every area, at a level yo
 
 - Every question explains why the right answer is right, and cites the section of the BABOK Guide (or The Business Analysis Standard) it's based on.
 - Full exams follow IIBA's published weighting of each knowledge area, so you practise the same mix as the real exam.
+- Some questions are long on purpose: 30% of the ECBA questions, 35% of the CCBA and 40% of the CBAP are scenarios of 60 to 110 words, and each case study is about 330 words. They aren't harder, just longer, so you practise managing your time and your reading pace, not only knowing the answer.
+- 50 **Match** puzzles on how the BABOK Guide fits together: you sort its tasks, their outputs and short descriptions of real analyst work into knowledge areas and tasks, from two boxes up to the whole map. The task and output names are the BABOK Guide's; the activities are original.
+- A **day streak** counts the days in a row you practise, and **Biggest improvement** records your best jump in one area.
 - It works on a laptop, a tablet or a phone, in light or dark mode.
 
 ---
 
-## Six ways to practise
+## Seven ways to practise
 
 | Mode | What it does | Use it when |
 |---|---|---|
@@ -79,6 +83,7 @@ Keep going until your results are evenly spread across every area, at a level yo
 | **Knowledge area focus** (domain focus for the ECBA) | 20 questions from one area you choose. | You've just studied a chapter. |
 | **Hard 10** | 10 of the hardest questions. | You feel confident and want a challenge. |
 | **Flash cards** | See the question, turn the card over, and say whether you got it right. Builds a streak, with a chart of the last 7 days. | You want to learn terms and concepts on the go. |
+| **Match** | 50 sorting puzzles: put each task, output or activity in the right knowledge area or task. Four levels, from two boxes to the whole map, with stars and best times. | You want to see how the BABOK Guide fits together. |
 
 After any test, **Retry incorrect** runs the questions you missed again.
 
@@ -110,12 +115,27 @@ After any test, **Retry incorrect** runs the questions you missed again.
 
 ### Use flash cards
 - Click **Open cards**, and choose all areas or just one.
-- Read the question and answer it in your head. Then click **Show answer**, and the card turns over.
+- Read the question and answer it in your head. Then click **Show answer**, and the card turns over. Long scenario questions appear on the cards in a short version, so you can go through them quickly.
 - Be honest with yourself: click the green **I got it right** or the red **I got it wrong**. The next card follows straight away.
 - Cards you got wrong come back a few cards later. Cards you know move to the back of the deck next time.
 - Next to the card you'll see your **streak** (right answers in a row), your best streak, today's right and wrong, and a chart of the **last 7 days**.
 
+### Play the Match puzzles
+- Click **Open puzzles** on the Practice page. Start with #1. They begin with two boxes and a few cards and build up to the whole map.
+- Click or tap a card, then the box it belongs in. With a mouse you can drag it instead. On a phone, a bar at the bottom lists the boxes.
+- When every card is placed, click **Check**. Right cards stay put with a tick; wrong ones go back to the pile, marked, for another go.
+- Three stars for no mistakes, two for one or two. **Show answers** finishes a puzzle without stars.
+- At the end, **Worth a second look** explains every card you got wrong. Click any card to see why it goes where it does.
+- Some boards have an extra box, such as **Not a BABOK v3 task**: a few cards are old BABOK v2 task names or project work.
+
+### Keep a streak going
+- Each day you practise counts towards your **day streak**: finish a test or drill, rate a flash card, or finish a Match puzzle. The Practice page shows it, with your best.
+- Miss a day and the streak goes back to 0. The Practice page tells you how long your last one was, and you start again the next time you practise.
+- When a test beats your recent score in an area by 5 points or more, the results page tells you, for example **Strategy Analysis: 20% → 45%**. It counts areas with at least 5 questions in the test, compared with your last 40 answers there.
+- Your best jump so far is your **Biggest improvement**, on the Dashboard under **Personal bests**.
+
 ### Read your dashboard
+- **Personal bests:** your day streak, your best streak and your biggest improvement.
 - **Score trend:** your scores over time. The dashed line is your practice target.
 - **Accuracy by area:** where you're strong, and which area is your weakest.
 - **By difficulty** and **Bank coverage:** how you do on easy, mid and hard questions, and how much of the bank you've seen.
@@ -149,6 +169,13 @@ The button at the top right switches between automatic, dark and light mode.
 | **Space** | Turn the card over |
 | **→** | I got it right |
 | **←** | I got it wrong |
+
+| Match puzzles | |
+|---|---|
+| **Tab**, then **Enter** | Pick up a card |
+| **1** to **7** | Put it in that box |
+| **0** | Put it back in the pile |
+| **Esc** | Let go of the card |
 
 ---
 

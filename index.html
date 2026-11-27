@@ -287,6 +287,55 @@ main.enter .chart .line{stroke-dasharray:6000;animation:draw 1.4s ease-out .2s b
 main.enter .chart .dot{animation:fadein .4s ease-out .9s both}
 main.step .qtext,main.step .opts,main.step .case{animation:rise .3s var(--ease) both}
 main.step .opts{animation-delay:.04s}
+/* Match puzzles */
+.m-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+.m-tile{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;padding:14px 16px;border:0;border-radius:14px;background:var(--panel2);color:var(--text);cursor:pointer;font:inherit;transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.m-tile:hover{transform:translateY(-2px);box-shadow:var(--sh-1)}
+.m-tile.solved{background:var(--good-soft)}
+.m-num{font-size:12px;color:var(--faint)}
+.m-title{font-weight:700;line-height:1.3}
+.m-stars{color:var(--warn-ink);letter-spacing:2px;font-size:15px;margin-top:2px}
+.m-board{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,360px);gap:16px;align-items:start}
+.m-bins{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.m-bin{background:var(--panel);border-radius:14px;box-shadow:var(--hi),var(--sh-1);display:flex;flex-direction:column;min-height:120px;outline:2px dashed transparent;outline-offset:-5px;transition:outline-color .15s}
+.m-bin.none{background:var(--well)}
+.m-bin.over,.m-pool.over{outline:2px dashed var(--accent-ring);outline-offset:-5px}
+.m-binhead{display:flex;gap:10px;align-items:flex-start;text-align:left;border:0;background:transparent;color:var(--text);font:600 14px/1.35 var(--sans);padding:12px 14px 8px;border-radius:14px 14px 0 0;cursor:pointer}
+.m-binhead[disabled]{cursor:default;color:var(--text);opacity:1}
+.m-bin.ready .m-binhead{color:var(--accent-ink)}
+.m-bin.ready .m-binhead:hover{background:var(--accent-soft)}
+.m-key{flex:0 0 auto;min-width:22px;height:22px;border-radius:7px;background:var(--panel3);display:inline-grid;place-items:center;font-size:12px}
+.m-drop{display:flex;flex-direction:column;gap:8px;padding:4px 10px 12px;flex:1}
+.m-empty{padding:8px 4px}
+.m-pool{position:sticky;top:84px;max-height:calc(100vh - 110px);overflow:auto}
+.m-cards{display:flex;flex-direction:column;gap:8px}
+.m-card{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;text-align:left;width:100%;padding:10px 12px;border:0;border-radius:11px;background:var(--panel-solid);color:var(--text);box-shadow:var(--sh-1);font:500 14px/1.4 var(--sans);cursor:grab;user-select:none;-webkit-user-select:none;transition:transform .15s var(--ease),box-shadow .15s,background .15s}
+.m-card:hover{transform:translateY(-1px)}
+.m-card.sel{box-shadow:0 0 0 2px var(--accent),var(--sh-2)}
+.m-card.ok{background:var(--good-soft);box-shadow:none;cursor:pointer}
+.m-card.no{box-shadow:0 0 0 2px var(--bad),var(--sh-1)}
+.m-card.info{box-shadow:0 0 0 2px var(--accent-ring)}
+.m-card.lifting{opacity:.35}
+.m-kind{flex:0 0 auto;font:600 10px/1.9 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--faint);padding:0 6px;border-radius:6px;background:var(--panel2)}
+.m-text{flex:1}
+.m-mark{flex:0 0 auto;font-weight:700}
+.m-card.ok .m-mark{color:var(--good-ink)}
+.m-card.no .m-mark{color:var(--bad-ink)}
+.m-ghost{position:fixed;left:0;top:0;z-index:60;pointer-events:none;box-shadow:var(--sh-3);opacity:.96;width:auto}
+.m-dock{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:var(--panel-solid);box-shadow:0 -12px 30px -14px rgba(16,33,82,.4);max-height:45vh;overflow:auto}
+.m-dock .btn{white-space:normal;text-align:left;line-height:1.3}
+.m-dockpad{height:120px}
+.dstreak{display:flex;gap:16px;align-items:center;padding:12px 18px}
+.dstreak-n{flex:0 0 auto;min-width:48px;text-align:center;font-size:32px;font-weight:800;line-height:1;color:var(--accent-ink)}
+.dstreak.broken .dstreak-n{color:var(--muted)}
+.gain-list{margin:6px 0;padding-left:18px;font-size:15px}
+.gain-list li{margin:3px 0}
+.m-docksel{flex:1 0 100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.m-note{flex:1 0 100%;font-weight:400;font-size:13px;line-height:1.45;padding-top:6px;border-top:1px solid var(--line)}
+.m-board.done{grid-template-columns:1fr}
+.m-big{font-size:28px;font-weight:800;letter-spacing:.02em;margin:4px 0}
+.m-why li{margin:6px 0}
+@media (max-width:900px){.m-board{grid-template-columns:1fr}.m-pool{position:static;max-height:none;order:-1}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -452,6 +501,7 @@ const store = {
 
 /* --------------------------- question bank --------------------------- */
 const bank = loadBank(window.BA_BANK);
+const match = loadMatch(window.BA_BANK && window.BA_BANK.match);
 
 function loadBank(raw) {
   const b = { version: '', byId: new Map(), cases: new Map(), pools: {}, errors: [], warnings: [], fatal: '' };
@@ -478,6 +528,7 @@ function loadBank(raw) {
     const exams = (Array.isArray(q.exam) ? q.exam : String(q.exam || '').split(/[\s,|/]+/)).map(e => String(e).trim().toUpperCase()).filter(Boolean);
     const level = String(q.level || '').trim().toLowerCase().replace('medium', 'mid');
     const text = typeof q.question === 'string' ? q.question.trim() : '';
+    const brief = typeof q.brief === 'string' ? q.brief.trim().slice(0, 600) : '';   // optional short wording, used on flash cards
     const options = Array.isArray(q.options) ? q.options.map(o => (typeof o === 'string' ? o.trim() : '')) : [];
     const answer = typeof q.answer === 'number' ? q.answer : LETTERS.indexOf(String(q.answer || '').trim().toUpperCase().slice(0, 1) || '?');
     const area = String(q.area || '').trim().toUpperCase();
@@ -494,7 +545,7 @@ function loadBank(raw) {
       if (typeof q.case === 'string' && b.cases.has(q.case)) caseId = q.case;
       else b.warnings.push(`${tag}: case "${String(q.case).slice(0, 40)}" not found, shown as a standalone question.`);
     }
-    const item = { id, exams: [], area, level, question: text, options, answer, why, ref, caseId };
+    const item = { id, exams: [], area, level, question: text, brief, options, answer, why, ref, caseId };
     for (const ex of exams) {
       const cfg = CONFIG.exams[ex];
       if (!cfg) { b.warnings.push(`${tag}: unknown exam "${ex.slice(0, 12)}".`); continue; }
@@ -592,12 +643,13 @@ function loadSession() {
 let history = (Array.isArray(store.get('history', [])) ? store.get('history', []) : []).map(cleanAttempt).filter(Boolean);
 let cards = cleanCards(store.get('cards', null));
 let fstats = cleanFlash(store.get('flash', null));
+let mstats = cleanMatch(store.get('match', null));
 const settings = cleanSettings(store.get('settings', null));
 const S = {
   exam: EXAM_IDS.includes(store.get('exam', '')) ? store.get('exam', '') : 'CBAP',
   view: 'home', session: loadSession(), endPanel: false, navOpen: false,
   reviewId: null, reviewFilter: 'all', dashFilter: 'all', showAllHistory: false,
-  fc: null, fcArea: 'ALL'
+  fc: null, fcArea: 'ALL', mb: null
 };
 const saveHistory = () => store.set('history', history);
 const saveCards = () => store.set('cards', cards);
@@ -633,6 +685,80 @@ function weakestArea(exam) {
   list.sort((x, y) => x.c / x.n - y.c / y.n || x.n - y.n);
   return list[0] || null;
 }
+/* ---------------------- day streak & biggest improvement ---------------------- */
+/* A day counts when you finish a test or drill, rate a flash card or finish a Match puzzle, by your own clock.
+   Past practice counts too: the days are seeded from history, flash-card days and puzzle times. */
+const DAY_RE = /^\d{4}-\d{2}-\d{2}$/;
+const dayNum = k => { const [y, m, d] = k.split('-').map(Number); return Math.round(Date.UTC(y, m - 1, d) / 864e5); };
+const realDay = k => typeof k === 'string' && DAY_RE.test(k) && new Date(dayNum(k) * 864e5).toISOString().slice(0, 10) === k;
+const MILESTONES = [3, 7, 14, 30, 60, 100, 200, 365];
+const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+let activity = { days: [], best: 0 };
+function cleanActivity(o) {
+  const src = o && typeof o === 'object' && !Array.isArray(o) ? o : {}, top = dayNum(dayKey()) + 1;
+  const days = [...new Set((Array.isArray(src.days) ? src.days.slice(0, 5000) : []).filter(k => realDay(k) && dayNum(k) <= top))].sort().slice(-800);
+  return { days, best: Number.isInteger(src.best) && src.best >= 0 && src.best <= 100000 ? src.best : 0 };
+}
+function seedActivity() {
+  const all = activity.days.slice();
+  history.forEach(a => all.push(dayKey(new Date(a.end))));
+  EXAM_IDS.forEach(ex => Object.keys(fstats[ex].days).forEach(k => { const v = fstats[ex].days[k]; if (v[0] + v[1] > 0) all.push(k); }));
+  Object.keys(mstats).forEach(k => { if (mstats[k].t) all.push(dayKey(new Date(mstats[k].t))); });
+  const n = activity.days.length;
+  activity = cleanActivity({ days: all, best: activity.best });
+  activity.best = streakInfo().best;
+  if (activity.days.length !== n) store.set('activity', activity);
+}
+function streakInfo() {
+  const today = dayNum(dayKey());
+  let run = 0, best = 0, prev = null;
+  for (const k of activity.days) { const n = dayNum(k); run = prev !== null && n === prev + 1 ? run + 1 : 1; best = Math.max(best, run); prev = n; }
+  const alive = prev !== null && today - prev <= 1, cur = alive ? run : 0;   // alive: practised today or yesterday
+  return { cur, last: run, today: prev === today, broken: prev !== null && !alive, best: Math.max(best, activity.best), next: MILESTONES.find(m => m > cur) || 0 };
+}
+/* Records today; returns a line worth a toast (a milestone or a new best streak), or ''. */
+function markActive() {
+  const k = dayKey(); if (activity.days.includes(k)) return '';
+  const before = streakInfo();
+  activity.days = activity.days.concat(k).sort().slice(-800);
+  const now = streakInfo(); activity.best = now.best;
+  store.set('activity', activity);
+  if (now.cur > before.best && before.best >= 3) return `${now.cur} days in a row: your best streak yet!`;
+  return MILESTONES.includes(now.cur) ? `${now.cur} days in a row. Keep it going!` : '';
+}
+/* Gains: a test's score in an area against your last weakWindow answers there before it. An area counts with
+   5+ questions in the test and 5+ answers before it; a gain counts from +5 points. Worked out from history. */
+const GAIN_MIN_N = 5, GAIN_MIN = 5;
+function improvements(exam) {
+  const cfg = CONFIG.exams[exam], win = new Map(), out = [];
+  const avg = w => w.reduce((s, v) => s + v, 0) / w.length;
+  for (const a of history) {
+    if (a.exam !== exam) continue;
+    let weak = null;
+    for (const [id, w] of win) if (w.length >= CONFIG.weakMinAnswers && (!weak || avg(w) < weak.p || (avg(w) === weak.p && w.length < weak.n))) weak = { id, p: avg(w), n: w.length };
+    for (const [id, t] of tally(a.answers, 3)) {
+      const w = win.get(id);
+      if (!cfg.areaMap.has(id) || !w || w.length < CONFIG.weakMinAnswers || t.n < GAIN_MIN_N) continue;
+      const before = pct(w.reduce((s, v) => s + v, 0), w.length), after = pct(t.c, t.n);
+      if (after - before >= GAIN_MIN) out.push({ att: a, area: id, before, after, gain: after - before, weakest: !!weak && weak.id === id });
+    }
+    for (const r of a.answers) { const w = win.get(r[3]) || []; w.push(r[2]); if (w.length > CONFIG.weakWindow) w.shift(); win.set(r[3], w); }
+  }
+  return out;
+}
+const biggestGain = list => list.reduce((b, x) => (!b || x.gain > b.gain ? x : b), null);   // a tie keeps the earlier record
+function streakStrip() {
+  const si = streakInfo();
+  const msg = si.broken ? `You broke your streak. Your last streak was ${plural(si.last, 'day')}; your best is ${plural(si.best, 'day')}. Practise today to start again.`
+    : !si.cur ? 'Practise today to start a day streak: finish a drill, rate a flash card or solve a puzzle.'
+    : (si.today ? 'Done for today.' : 'Practise today to keep it going.') + (si.next ? ` ${plural(si.next - si.cur, 'more day')} to reach ${si.next}.` : '') + ` Best: ${plural(si.best, 'day')}.`;
+  return h('section', { class: 'panel dstreak' + (si.broken ? ' broken' : ''), 'aria-label': 'Day streak' },
+    h('div', { class: 'dstreak-n mono' }, String(si.cur)),
+    h('div', null, h('div', { class: 'strong' }, `${si.cur === 1 ? 'day' : 'days'} in a row`), h('div', { class: 'small muted' }, msg)));
+}
+activity = cleanActivity(store.get('activity', null));
+seedActivity();
+
 /* Largest-remainder split of `total` across blueprint weights. */
 function allocate(total, areas) {
   const sum = areas.reduce((s, a) => s + a.weight, 0) || 1;
@@ -730,7 +856,7 @@ function updateTimer() {
 }
 
 /* ----------------------------- routing ----------------------------- */
-const VIEWS = { home: viewHome, quiz: viewQuiz, results: viewResults, flash: viewFlash, dash: viewDash, settings: viewSettings, about: viewAbout };
+const VIEWS = { home: viewHome, quiz: viewQuiz, results: viewResults, flash: viewFlash, dash: viewDash, settings: viewSettings, about: viewAbout, match: viewMatch, board: viewBoard };
 function go(view) {
   if (S.view === 'quiz' && view !== 'quiz') clock.stop();
   S.view = has(VIEWS, view) ? view : 'home';
@@ -758,7 +884,7 @@ function render(keepScroll) {
 }
 function updateHeader() {
   document.querySelectorAll('[data-exam]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.exam === S.exam)));
-  const section = { quiz: 'home', flash: 'home', results: 'home' }[S.view] || S.view;
+  const section = { quiz: 'home', flash: 'home', results: 'home', match: 'home', board: 'home' }[S.view] || S.view;
   document.querySelectorAll('.views [data-view]').forEach(b => { if (b.dataset.view === section) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); });
   const t = { auto: 'Theme: auto', dark: 'Theme: dark', light: 'Theme: light' }[settings.theme];
   const btn = document.getElementById('themeBtn'); btn.textContent = t.replace('Theme: ', ''); btn.setAttribute('aria-label', t + ' (click to change)');
@@ -811,6 +937,7 @@ function viewHome() {
     h('h1', null, 'Practice'),
     h('p', { class: 'muted' }, `Real exam: ${cfg.questions} questions in ${cfg.minutes} minutes, ${cfg.format}.`),
     h('p', { class: 'small muted mono', style: 'margin-top:4px' }, `Bank ${bank.version || ''} · ${pool.length} ${ex} questions · easy ${lv.easy} · mid ${lv.mid} · hard ${lv.hard}`)));
+  root.append(streakStrip());
 
   const weak = weakestArea(ex);
   const counts = new Map(cfg.areas.map(a => [a.id, 0])); pool.forEach(q => counts.set(q.area, (counts.get(q.area) || 0) + 1));
@@ -836,7 +963,9 @@ function viewHome() {
       [areaSel, btn('Start', () => start('area', { area: areaSel.value }), 'primary', { disabled: !pool.length })]),
     card('Hard 10', `${CONFIG.sizes.hard} hard questions. ${hardN} hard ${ex} questions in the bank.`, btn('Start', () => start('hard'), 'primary', { disabled: !hardN })),
     card('Flash cards', `See the question, turn the card over, and say if you got it right. Builds a streak and a 7-day chart. ${known}/${fcPool.length} known.`,
-      btn('Open cards', () => { S.fc = null; go('flash'); }, 'primary', { disabled: !fcPool.length }))));
+      btn('Open cards', () => { S.fc = null; go('flash'); }, 'primary', { disabled: !fcPool.length })),
+    card('Match', `${match.exercises.length} sorting puzzles: put BABOK tasks, outputs and activities where they belong, from two boxes to the whole map. ${matchSolved()}/${match.exercises.length} solved.`,
+      btn('Open puzzles', () => go('match'), 'primary', { disabled: !match.exercises.length }))));
   root.append(h('p', { class: 'small muted' }, settings.instant
     ? 'Practice modes show the answer after each question; the full exam shows everything at the end. Change this in Settings.'
     : 'Practice modes hold answers until the end, like the exam. Change this in Settings.'));
@@ -986,10 +1115,12 @@ function finishSession(timeUp) {
   history.push(attempt);
   if (history.length > CONFIG.maxAttempts) history = history.slice(-CONFIG.maxAttempts);
   saveHistory();
+  const streakNote = markActive();
   S.session = null; store.del('session');
   S.reviewId = attempt.id; S.reviewFilter = 'all';
   go('results');
   if (timeUp) toast('Time is up. Your exam was submitted automatically.');
+  else if (streakNote) toast(streakNote);
 }
 
 /* ----------------------------- results ----------------------------- */
@@ -1013,6 +1144,15 @@ function viewResults() {
       h('div', { class: 'strong' }, `${a.correct} of ${a.total} correct`),
       statusChip(score >= target, score >= target ? `At or above your ${target}% practice target` : `Below your ${target}% practice target`),
       h('div', { class: 'small muted' }, 'Practice score only, not a prediction of your exam result. IIBA does not publish a pass mark; set your own target in Settings.')))));
+  const gains = improvements(a.exam), mine = gains.filter(g => g.att === a).sort((x, y) => y.gain - x.gain);
+  if (mine.length) {
+    const record = biggestGain(gains).att === a;
+    root.append(h('section', { class: 'banner gain', role: 'status' },
+      h('div', { style: 'flex:1 1 320px' }, h('div', { class: 'eyebrow' }, record ? 'Your biggest improvement so far' : 'You improved'),
+        h('ul', { class: 'gain-list' }, mine.slice(0, 3).map(g => h('li', null, h('span', { class: 'strong' }, areaName(a.exam, g.area)),
+          `: ${g.before}% → ${g.after}% (+${g.gain} points)`, g.weakest ? ', your weakest before this test' : ''))),
+        h('div', { class: 'small' }, `Compared with your last ${CONFIG.weakWindow} answers in each ${cfg.areaLabel.toLowerCase()} before this test.`))));
+  }
   root.append(h('div', { class: 'kpis' },
     kpi('Time used', fmtDur(a.dur), a.mode === 'full' ? `of ${Math.round((cfg.minutes * a.total) / cfg.questions)} min allowed` : null),
     kpi('Per question', fmtDur(a.total ? a.dur / a.total : 0)),
@@ -1133,6 +1273,12 @@ function viewDash() {
     kpi('Accuracy', answers.length ? pct(correct, answers.length) + '%' : '—', `${correct} correct`),
     kpi('Best full exam', best == null ? '—' : best + '%', fulls.length ? `last: ${pct(fulls[fulls.length - 1].correct, fulls[fulls.length - 1].total)}%` : 'none yet'),
     kpi('Study time', fmtHours(atts.reduce((s, a) => s + a.dur, 0)))));
+  const si = streakInfo(), top = biggestGain(improvements(ex));
+  root.append(h('section', { class: 'panel' }, h('h2', null, 'Personal bests'),
+    h('div', { class: 'kpis' },
+      kpi('Day streak', plural(si.cur, 'day'), si.broken ? `broken: the last one was ${plural(si.last, 'day')}` : si.cur && !si.today ? 'practise today to keep it' : si.next ? `${plural(si.next - si.cur, 'more day')} to ${si.next}` : 'every milestone reached'),
+      kpi('Best streak', plural(si.best, 'day'), 'all exams'),
+      kpi('Biggest improvement', top ? `+${top.gain} points` : '—', top ? `${areaName(ex, top.area)}: ${top.before}% → ${top.after}%` : `Shows when a test beats your average in a ${cfg.areaLabel.toLowerCase()} by 5+ points`))));
   const main = document.getElementById('main');
   const chartW = (main.clientWidth || 900) - 40 - 38;
   const recent = atts.slice(-30);
@@ -1231,7 +1377,7 @@ function viewFlash() {
       h('div', { class: 'fc-inner' },
         h('div', { class: 'fc-face fc-front', 'aria-hidden': String(d.flipped) },
           h('div', { class: 'fc-top' }, h('span', { class: 'fc-tag' }, 'Question'), h('span', { class: 'fc-meta' }, meta)),
-          h('p', { class: 'fq' }, q.question),
+          h('p', { class: 'fq' }, q.brief || q.question),
           h('span', { class: 'hint' }, 'Click Show answer, or the card, to turn it over.')),
         h('div', { class: 'fc-face fc-back', 'aria-hidden': String(!d.flipped) },
           h('div', { class: 'fc-top' }, h('span', { class: 'fc-tag ans' }, 'Answer'), h('span', { class: 'fc-meta' }, meta)),
@@ -1305,10 +1451,297 @@ function rateCard(right) {
   if (right) { st.cur++; if (st.cur > st.best) { if (st.best >= 3) d.beat = true; st.best = st.cur; } }   // "New best!" only for beating a best of 3 or more
   else { st.cur = 0; d.beat = false; }
   saveFlash();
+  const streakNote = markActive(); if (streakNote) toast(streakNote);
   if (!right) d.queue.splice(Math.min(d.idx + FC_BACK_AFTER, d.queue.length), 0, id);
   d.round[right ? 'k' : 'a']++; d.idx++; d.flipped = false; d.anim = 'next';
   render(true);
   const c = document.querySelector('.fc3d'); if (c) c.focus({ preventScroll: true });
+}
+
+/* ------------------------------ match puzzles ------------------------------ */
+/* Match: sorting puzzles on how the BABOK Guide fits together. Each card (a task, an output, an
+   activity, or an impostor) goes to a knowledge area or a task. The data is BA_BANK.match, built
+   by build-match.py; a card's right box is computed from the facts here, exactly as the build
+   computes it, so the two can't disagree. Progress is kept per puzzle in the 'match' key. */
+function loadMatch(raw) {
+  const m = { exercises: [], byId: new Map(), kas: Object.create(null), tasks: Object.create(null), items: Object.create(null), levels: Object.create(null) };
+  if (!raw || typeof raw !== 'object') return m;
+  const str = (v, max) => (typeof v === 'string' && v.trim() ? v.trim().slice(0, max) : '');
+  const obj = v => (v && typeof v === 'object' && !Array.isArray(v) ? v : {});
+  for (const k of Object.keys(obj(raw.kas))) if (AREA_RE.test(k) && str(raw.kas[k], 80)) m.kas[k] = str(raw.kas[k], 80);
+  for (const s of Object.keys(obj(raw.tasks))) { const t = raw.tasks[s]; if (/^\d{1,2}\.\d{1,2}$/.test(s) && t && has(m.kas, t.ka) && str(t.name, 90)) m.tasks[s] = { ka: t.ka, name: str(t.name, 90) }; }
+  for (const id of Object.keys(obj(raw.items))) {
+    const it = raw.items[id];
+    if (!validId(id) || !it || typeof it !== 'object') continue;
+    if (it.t === 'task' && has(m.tasks, it.s)) m.items[id] = { t: 'task', s: it.s, x: m.tasks[it.s].name };
+    else if ((it.t === 'output' || it.t === 'act') && has(m.tasks, it.s) && str(it.x, 400)) m.items[id] = { t: it.t, s: it.s, x: str(it.x, 400), w: str(it.w, 400) };
+    else if (it.t === 'imp' && str(it.x, 120)) m.items[id] = { t: 'imp', x: str(it.x, 120), k: it.k === 'v2' ? 'v2' : 'project' };
+  }
+  for (const k of Object.keys(obj(raw.levels))) if (/^[1-9]$/.test(k)) m.levels[k] = str(raw.levels[k], 40);
+  (Array.isArray(raw.exercises) ? raw.exercises : []).forEach((e, i) => {
+    const bad = msg => { bank.warnings.push(`Match puzzle #${i + 1}: ${msg}`); };
+    if (!e || typeof e !== 'object' || !validId(e.id) || m.byId.has(e.id)) return bad('missing or duplicate id.');
+    const sort = e.sort === 'ka' || e.sort === 'task' ? e.sort : '';
+    const rawBins = Array.isArray(e.bins) ? e.bins : [];
+    const bins = rawBins.filter(b => (sort === 'ka' ? has(m.kas, b) : has(m.tasks, b)));
+    if (!sort || !bins.length || bins.length !== rawBins.length || new Set(bins).size !== bins.length) return bad('unknown sort or box.');
+    const none = str(e.none, 60);
+    const boxes = bins.length + (none ? 1 : 0);
+    if (boxes < 2 || boxes > 7) return bad('needs 2 to 7 boxes.');
+    const rawCards = Array.isArray(e.cards) ? e.cards : [];
+    const cards = rawCards.filter(c => has(m.items, c));
+    if (!cards.length || cards.length !== rawCards.length || cards.length > 60 || new Set(cards).size !== cards.length) return bad('unknown or repeated card.');
+    const ex = { id: e.id, n: m.exercises.length + 1, level: clamp(parseInt(e.level, 10) || 1, 1, 9), title: str(e.title, 80) || e.id, intro: str(e.intro, 300), sort, bins, none, cards };
+    if (cards.some(c => !matchKey(ex, m.items[c], m))) return bad('a card has no box on its board.');
+    m.exercises.push(ex); m.byId.set(ex.id, ex);
+  });
+  return m;
+}
+/* The box a card belongs in on this board: a knowledge area or task id, 'NONE', or null (no box: a broken puzzle). */
+function matchKey(ex, it, m) {
+  m = m || match;
+  const key = it.s ? (ex.sort === 'ka' ? m.tasks[it.s].ka : it.s) : null;
+  return key && ex.bins.includes(key) ? key : ex.none ? 'NONE' : null;
+}
+const binLabel = (ex, k) => (k === 'NONE' ? ex.none : ex.sort === 'ka' ? match.kas[k] : `${match.tasks[k].name} (${k})`);
+function cardWhy(it) {
+  if (it.t === 'imp') return it.k === 'v2' ? 'A task name from the older BABOK v2. It isn’t one of the 30 tasks in BABOK v3.' : 'Project or delivery work, not one of the 30 BABOK v3 tasks.';
+  const t = match.tasks[it.s], ka = match.kas[t.ka];
+  if (it.t === 'task') return `Task ${it.s} in ${ka}.`;
+  if (it.t === 'output') return `An output of ${t.name} (${it.s}), in ${ka}.`;
+  return `${it.w} Task: ${t.name} (${it.s}).`;
+}
+/* Why a card goes where it does, without repeating the box name already shown next to it. */
+function cardNote(ex, it) {
+  if (it.t === 'imp') return cardWhy(it);
+  const t = match.tasks[it.s], off = matchKey(ex, it) === 'NONE' ? `It belongs to ${t.name} (${it.s}), which isn’t on this board.` : '';
+  if (it.t === 'task') return ex.sort === 'ka' ? `Task ${it.s}.` : off;
+  if (it.t === 'output') return ex.sort === 'ka' ? `An output of ${t.name} (${it.s}).` : off;
+  return it.w + (ex.sort === 'ka' ? ` Task: ${t.name} (${it.s}).` : off ? ' ' + off : '');
+}
+const starText = n => '★'.repeat(n) + '☆'.repeat(3 - n);
+function cleanMatch(o) {
+  const out = Object.create(null);
+  if (!o || typeof o !== 'object' || Array.isArray(o)) return out;
+  let n = 0;
+  for (const k of Object.keys(o)) {
+    if (n >= 500) break;
+    const v = o[k];
+    if (!validId(k) || !match.byId.has(k) || !v || typeof v !== 'object' || Array.isArray(v)) continue;   // only real puzzles
+    out[k] = {
+      s: Number.isInteger(v.s) ? clamp(v.s, 0, 3) : 0,
+      b: Number.isFinite(v.b) && v.b > 0 && v.b < 86400 ? Math.round(v.b) : 0,
+      p: Number.isInteger(v.p) ? clamp(v.p, 0, 99999) : 0,
+      t: Number.isFinite(v.t) && v.t > 0 && v.t < Date.now() + 864e5 ? v.t : 0,
+      r: v.r === true
+    };
+    n++;
+  }
+  return out;
+}
+const saveMatch = () => store.set('match', mstats);
+const matchSolved = () => match.exercises.filter(e => mstats[e.id] && mstats[e.id].s > 0).length;
+
+function openPuzzle(id) {
+  const ex = match.byId.get(id); if (!ex) return;
+  S.mb = { id, order: shuffle(ex.cards), place: Object.fromEntries(ex.cards.map(c => [c, 'POOL'])), sel: null,
+    locked: new Set(), missed: new Set(), back: new Set(), mistakes: 0, start: 0, end: 0, done: false, revealed: false, msg: '', info: null };
+  go('board');
+}
+const mbFocus = sel => { const el = sel && document.querySelector(sel); if (el) el.focus({ preventScroll: true }); return el; };
+const cardSel = c => `.m-card[data-card="${c}"]`;
+/* On a phone the "Place in" bar can cover a third of the screen: size its spacer to fit and lift the picked card above it. */
+function mbFit(c) {
+  const dock = document.querySelector('.m-dock'), pad = document.querySelector('.m-dockpad'), el = document.querySelector(cardSel(c));
+  if (!dock || !pad) return;
+  pad.style.height = dock.offsetHeight + 'px';
+  if (el) { const gap = el.getBoundingClientRect().bottom - dock.getBoundingClientRect().top + 12; if (gap > 0) window.scrollBy(0, gap); }
+}
+function mbSelect(c) {
+  const b = S.mb; if (!b) return;
+  if (mbSelect.dragged) { mbSelect.dragged = false; return; }
+  if (b.done) { b.info = b.info === c ? null : c; render(true); mbFocus(cardSel(c)); return; }
+  if (b.locked.has(c)) return;
+  b.sel = b.sel === c ? null : c;
+  render(true);
+  mbFocus(cardSel(c));
+  if (b.sel) mbFit(c);
+}
+function mbDeselect() {
+  const b = S.mb; if (!b || !b.sel) return;
+  const c = b.sel; b.sel = null; render(true); mbFocus(cardSel(c));
+}
+function mbPlace(c, to) {
+  const b = S.mb; if (!b || b.done || !c || b.locked.has(c)) return;
+  if (!b.start) b.start = Date.now();
+  b.place[c] = to; b.sel = null; b.msg = ''; b.back.delete(c);
+  render(true);
+  const next = document.querySelector('.m-pool .m-card') || document.querySelector('.m-check');
+  if (next) next.focus({ preventScroll: true });
+}
+function mbCheck() {
+  const b = S.mb, ex = b && match.byId.get(b.id); if (!ex || b.done) return;
+  if (ex.cards.some(c => b.place[c] === 'POOL')) return;
+  b.back = new Set(); b.sel = null;
+  for (const c of ex.cards) {
+    if (b.locked.has(c)) continue;
+    if (b.place[c] === matchKey(ex, match.items[c])) b.locked.add(c);
+    else { b.missed.add(c); b.back.add(c); b.place[c] = 'POOL'; }
+  }
+  b.mistakes += b.back.size;
+  if (!b.back.size) finishPuzzle(false);
+  else b.msg = `${ex.cards.length - b.back.size} of ${ex.cards.length} right. ${b.back.size} went back to the pile, marked ✗: try again.`;
+  render(true);
+  window.scrollTo(0, 0);
+  mbFocus(b.done ? '.banner .btn' : '.m-pool .m-card');
+}
+function revealPuzzle() {
+  const b = S.mb, ex = b && match.byId.get(b.id); if (!ex || b.done) return;
+  if (!confirm('Show where every card goes? This round won’t earn stars.')) return;
+  for (const c of ex.cards) { if (b.place[c] !== matchKey(ex, match.items[c])) b.missed.add(c); b.place[c] = matchKey(ex, match.items[c]); b.locked.add(c); }
+  b.back = new Set(); finishPuzzle(true); render(true); window.scrollTo(0, 0); mbFocus('.banner .btn');
+}
+function finishPuzzle(revealed) {
+  const b = S.mb, ex = match.byId.get(b.id);
+  b.done = true; b.revealed = revealed; b.sel = null; b.msg = '';
+  b.end = Date.now(); if (!b.start) b.start = b.end;
+  b.sec = Math.max(1, Math.round((b.end - b.start) / 1000));
+  b.stars = revealed ? 0 : b.mistakes === 0 ? 3 : b.mistakes <= 2 ? 2 : 1;
+  const old = mstats[ex.id] || { s: 0, b: 0, p: 0, t: 0, r: false };
+  b.newBest = !revealed && old.b > 0 && b.sec < old.b;
+  mstats[ex.id] = { s: Math.max(old.s, b.stars), b: revealed ? old.b : old.b ? Math.min(old.b, b.sec) : b.sec, p: old.p + (revealed ? 0 : 1), t: Date.now(), r: old.r || revealed };
+  saveMatch();
+  const streakNote = markActive(); if (streakNote) toast(streakNote);
+}
+function mbTime() { const b = S.mb; return !b || !b.start ? '0:00' : b.done ? fmtDur(b.sec) : fmtDur((Date.now() - b.start) / 1000); }
+setInterval(() => { if (S.view === 'board' && S.mb && S.mb.start && !S.mb.done) { const t = document.getElementById('mtimer'); if (t) t.textContent = mbTime(); } }, 1000);
+
+/* Drag with a mouse or pen. Touch uses tap-then-box instead, so a finger can still scroll the page. */
+function mbDragStart(e, c) {
+  const b = S.mb;
+  if (!b || b.done || b.locked.has(c) || e.pointerType === 'touch' || e.button !== 0) return;
+  const src = e.currentTarget, x0 = e.clientX, y0 = e.clientY;
+  let ghost = null, over = null;
+  const move = ev => {
+    if (!ghost) {
+      if (Math.abs(ev.clientX - x0) + Math.abs(ev.clientY - y0) < 6) return;
+      ghost = src.cloneNode(true); ghost.classList.add('m-ghost'); ghost.style.width = src.offsetWidth + 'px';
+      document.body.append(ghost); src.classList.add('lifting');
+    }
+    ghost.style.transform = `translate(${ev.clientX + 10}px, ${ev.clientY + 10}px)`;
+    const el = document.elementFromPoint(ev.clientX, ev.clientY), zone = el && el.closest('[data-bin]');
+    if (over !== zone) { if (over) over.classList.remove('over'); over = zone; if (over) over.classList.add('over'); }
+  };
+  const up = () => {
+    window.removeEventListener('pointermove', move); window.removeEventListener('pointerup', up); window.removeEventListener('pointercancel', up);
+    if (!ghost) return;                                   // no movement: a plain click, handled by onclick
+    ghost.remove(); src.classList.remove('lifting');
+    if (over) over.classList.remove('over');
+    mbSelect.dragged = true; setTimeout(() => { mbSelect.dragged = false; }, 0);
+    if (over) mbPlace(c, over.dataset.bin);
+  };
+  window.addEventListener('pointermove', move); window.addEventListener('pointerup', up); window.addEventListener('pointercancel', up);
+}
+
+function viewMatch() {
+  const total = match.exercises.length, solved = matchSolved();
+  const stars = match.exercises.reduce((t, e) => t + (mstats[e.id] ? mstats[e.id].s : 0), 0);
+  const next = match.exercises.find(e => !(mstats[e.id] && mstats[e.id].s > 0));
+  const root = h('div', { class: 'stack' });
+  root.append(h('div', { class: 'spread' },
+    h('div', null, h('div', { class: 'eyebrow' }, 'Practice · Match'), h('h1', null, 'Match'),
+      h('p', { class: 'muted' }, 'Sorting puzzles on how the BABOK Guide fits together: put each task, output or activity in its knowledge area or task. They start with two boxes and end with the whole map.'),
+      h('p', { class: 'small muted mono', style: 'margin-top:4px' }, `${solved}/${total} solved · ${stars}/${total * 3} stars`)),
+    h('div', { class: 'row' }, next ? btn(solved ? `Continue with #${next.n}` : 'Start with #1', () => openPuzzle(next.id), 'primary') : null, btn('Back', () => go('home'), 'ghost'))));
+  if (!total) { root.append(h('div', { class: 'notice' }, 'No puzzles are loaded. The About page lists any problem with the question bank.')); return root; }
+  const levels = new Map();
+  match.exercises.forEach(e => { if (!levels.has(e.level)) levels.set(e.level, []); levels.get(e.level).push(e); });
+  for (const [lv, list] of levels) {
+    root.append(h('section', { class: 'panel stack' },
+      h('div', { class: 'spread' }, h('h2', { style: 'margin:0' }, `Level ${lv}${match.levels[lv] ? ' · ' + match.levels[lv] : ''}`), h('span', { class: 'small muted mono' }, `#${list[0].n} to #${list[list.length - 1].n}`)),
+      h('div', { class: 'm-grid' }, list.map(e => {
+        const st = mstats[e.id], s = st ? st.s : 0, boxes = e.bins.length + (e.none ? 1 : 0);
+        return h('button', { type: 'button', class: 'm-tile' + (s ? ' solved' : ''), onclick: () => openPuzzle(e.id),
+          'aria-label': `Puzzle ${e.n}: ${e.title}. ${e.cards.length} cards, ${boxes} boxes. ${s ? `${s} of 3 stars` : st && st.r ? 'Answers seen, not solved yet' : 'Not solved yet'}.` },
+          h('span', { class: 'm-num mono' }, '#' + e.n), h('span', { class: 'm-title' }, e.title),
+          h('span', { class: 'small muted' }, `${e.cards.length} cards · ${boxes} boxes`),
+          h('span', { class: 'm-stars', 'aria-hidden': 'true' }, starText(s), st && st.b ? h('span', { class: 'small muted mono' }, ' ' + fmtDur(st.b)) : null));
+      }))));
+  }
+  return root;
+}
+
+function mbCard(ex, c) {
+  const b = S.mb, it = match.items[c], locked = b.locked.has(c), sel = b.sel === c, back = b.back.has(c);
+  const kind = it.t === 'output' ? 'Output' : it.t === 'act' ? 'Activity' : 'Task';
+  const state = locked ? ', placed correctly' : back ? ', was in the wrong box' : '';
+  const open = b.done && b.info === c, note = open ? `Goes in ${binLabel(ex, matchKey(ex, it))}. ${cardNote(ex, it)}` : '';
+  return h('button', { type: 'button', class: 'm-card' + (locked ? ' ok' : '') + (back ? ' no' : '') + (sel ? ' sel' : '') + (open ? ' info' : ''),
+    'data-card': c, 'aria-pressed': b.done || locked ? null : String(sel), 'aria-expanded': b.done ? String(open) : null,
+    tabindex: locked && !b.done ? '-1' : null,   // a placed card does nothing until the board is finished
+    'aria-label': `${kind}: ${it.x}${state}` + (open ? '. ' + note : ''),
+    onclick: () => mbSelect(c), onpointerdown: e => mbDragStart(e, c) },
+    h('span', { class: 'm-kind', 'aria-hidden': 'true' }, kind), h('span', { class: 'm-text' }, it.x),
+    locked ? h('span', { class: 'm-mark', 'aria-hidden': 'true' }, '✓') : back ? h('span', { class: 'm-mark', 'aria-hidden': 'true' }, '✗') : null,
+    open ? h('span', { class: 'm-note', 'aria-hidden': 'true' }, note) : null);
+}
+function viewBoard() {
+  const b = S.mb, ex = b && match.byId.get(b.id);
+  if (!ex) { setTimeout(() => go('match'), 0); return h('div'); }
+  const keys = ex.bins.concat(ex.none ? ['NONE'] : []);
+  const pool = b.order.filter(c => b.place[c] === 'POOL');
+  const next = match.exercises[ex.n];
+  const root = h('div', { class: 'stack' });
+  root.append(h('div', { class: 'spread' },
+    h('div', null, h('div', { class: 'eyebrow' }, `Match · Level ${ex.level}${match.levels[ex.level] ? ' · ' + match.levels[ex.level] : ''} · #${ex.n} of ${match.exercises.length}`),
+      h('h1', null, ex.title), h('p', { class: 'muted' }, ex.intro)),
+    h('div', { class: 'row' }, h('span', { id: 'mtimer', class: 'timer', title: 'Time since your first move' }, mbTime()),
+      h('span', { class: 'small muted' }, `${b.mistakes} mistake${b.mistakes === 1 ? '' : 's'}`), btn('All puzzles', () => go('match'), 'sm ghost'))));
+  if (b.done) {
+    const st = mstats[ex.id];
+    root.append(h('section', { class: 'banner', role: 'status' },
+      h('div', { style: 'flex:1 1 280px' }, h('div', { class: 'eyebrow' }, b.revealed ? 'Answers shown' : 'Solved'),
+        h('div', { class: 'm-big' }, b.revealed ? 'Here’s where everything goes' : `${starText(b.stars)}  ${fmtDur(b.sec)}`),
+        h('div', { class: 'small' }, b.revealed ? 'No stars this round. Try it again from the start when you’re ready.'
+          : `${b.mistakes} mistake${b.mistakes === 1 ? '' : 's'}` + (b.newBest ? ' · new best time!' : st && st.b ? ` · best ${fmtDur(st.b)}` : ''))),
+      h('div', { class: 'row' }, next ? btn('Next puzzle', () => openPuzzle(next.id), 'primary') : null, btn('Again', () => openPuzzle(ex.id)), btn('All puzzles', () => go('match'), 'ghost'))));
+    const missed = ex.cards.filter(c => b.missed.has(c));
+    root.append(h('section', { class: 'panel stack' },
+      h('h2', { style: 'margin:0' }, missed.length ? 'Worth a second look' : 'Why each card goes where it does'),
+      missed.length ? h('ul', { class: 'plain m-why' }, missed.map(c => { const it = match.items[c];
+        return h('li', null, h('span', { class: 'strong' }, it.x), ' → ', binLabel(ex, matchKey(ex, it)), '. ', cardNote(ex, it)); })) : null,
+      h('p', { class: 'small muted' }, 'Click or tap any card below to see why it goes there.')));
+  }
+  const bins = h('div', { class: 'm-bins' }, keys.map((k, i) => {
+    const inBin = b.order.filter(c => b.place[c] === k);
+    return h('section', { class: 'm-bin' + (k === 'NONE' ? ' none' : '') + (b.sel ? ' ready' : ''), 'data-bin': k },
+      h('button', { type: 'button', class: 'm-binhead', disabled: b.done || !b.sel, onclick: () => mbPlace(b.sel, k),
+        'aria-label': `Box ${i + 1}: ${binLabel(ex, k)}, ${inBin.length} card${inBin.length === 1 ? '' : 's'}` + (b.sel ? '. Place the selected card here.' : '') },
+        h('span', { class: 'm-key mono', 'aria-hidden': 'true' }, String(i + 1)), h('span', null, binLabel(ex, k))),
+      h('div', { class: 'm-drop' }, inBin.length ? inBin.map(c => mbCard(ex, c)) : h('span', { class: 'm-empty small muted' }, b.sel ? 'Place it here' : 'Empty')));
+  }));
+  const tip = b.done ? '' : !pool.length ? 'Every card is placed. Check them when you’re ready.'
+    : b.sel ? `Now pick its box: click it, or press 1 to ${keys.length}.` : 'Click or tap a card, then its box. With a mouse you can drag it too.';
+  const side = h('section', { class: 'panel stack m-pool', 'data-bin': 'POOL' },
+    h('div', { class: 'spread' }, h('h2', { style: 'margin:0' }, b.done ? 'Done' : 'Cards'), h('span', { class: 'small muted mono' }, `${pool.length} of ${ex.cards.length} left`)),
+    b.msg ? h('div', { class: 'notice', role: 'status' }, b.msg) : null,
+    pool.length ? h('div', { class: 'm-cards' }, pool.map(c => mbCard(ex, c))) : null,
+    tip ? h('p', { class: 'small muted', 'aria-live': 'polite' }, tip) : null,
+    b.done ? null : h('div', { class: 'row' },
+      btn('Check', mbCheck, 'primary m-check', { disabled: !!pool.length, title: pool.length ? 'Place every card first' : 'Check your placements' }),
+      b.sel && b.place[b.sel] !== 'POOL' ? btn('Back to the pile', () => mbPlace(b.sel, 'POOL'), 'ghost') : null,
+      btn('Show answers', revealPuzzle, 'ghost')));
+  root.append(h('div', { class: 'm-board' + (b.done ? ' done' : '') }, bins, b.done ? null : side));
+  if (!b.done) root.append(h('p', { class: 'small muted' }, `Keys: Tab to a card and press Enter to pick it up, then 1 to ${keys.length} for a box, 0 for the pile, Esc to let go.`));
+  if (b.sel && !b.done) {
+    root.append(h('div', { class: 'm-dockpad', 'aria-hidden': 'true' }));
+    root.append(h('div', { class: 'm-dock', role: 'group', 'aria-label': 'Place the selected card' },
+      h('span', { class: 'small strong m-docksel' }, `Place “${match.items[b.sel].x}” in:`),
+      keys.map((k, i) => btn(`${i + 1} · ${binLabel(ex, k)}`, () => mbPlace(b.sel, k), 'sm')),
+      b.place[b.sel] !== 'POOL' ? btn('0 · Pile', () => mbPlace(b.sel, 'POOL'), 'sm') : null,
+      btn('Cancel', mbDeselect, 'sm ghost')));
+  }
+  return root;
 }
 
 /* ------------------------------ settings ------------------------------ */
@@ -1323,7 +1756,7 @@ function viewAbout() {
     sec('Not affiliated with IIBA',
       'This is an independent project. It is not affiliated with, endorsed, sponsored or reviewed by the International Institute of Business Analysis (IIBA). IIBA, BABOK, ECBA, CCBA, CBAP and BACCM are trademarks of IIBA and are used here only to describe what the questions cover.'),
     sec('Practice questions, not exam questions',
-      'Every question is an original practice item written against the BABOK Guide v3 and The Business Analysis Standard. None are taken from an IIBA exam, and they may not match the real exams’ wording, difficulty or mix of topics. Each question cites the section it is based on; the BABOK Guide itself is not reproduced here.'),
+      'Every question is an original practice item written against the BABOK Guide v3 and The Business Analysis Standard. None are taken from an IIBA exam, and they may not match the real exams’ wording, difficulty or mix of topics. Each question cites the section it is based on; the BABOK Guide itself is not reproduced here. The Match puzzles use the BABOK Guide’s task and output names; the activities on their cards are original.'),
     sec('Names are made up',
       'The companies, organizations, places and people in the questions and case studies are invented for practice. Any resemblance to a real company, organization or person is purely coincidental, and no real one was meant.'),
     sec('Your score is not a prediction',
@@ -1335,7 +1768,7 @@ function viewAbout() {
     sec('Please don’t add real exam questions',
       'If you edit or contribute questions, never add content from a real IIBA exam. Sharing live exam content breaks the confidentiality rules candidates agree to and can put certifications at risk.'),
     sec('Your data stays with you',
-      'Your answers, results and flash-card ratings are stored only in this browser (local storage). The simulator has no accounts, no tracking and no cookies, and it sends nothing to a server. The site’s host may keep standard technical logs of visits. Clearing your browser data deletes your history, so export it if you want a backup.'),
+      'Your answers, results, flash-card ratings and puzzle progress are stored only in this browser (local storage). The simulator has no accounts, no tracking and no cookies, and it sends nothing to a server. The site’s host may keep standard technical logs of visits. Clearing your browser data deletes your history, so export it if you want a backup.'),
     sec('No warranty',
       'The simulator is provided as is, without any warranty. The authors aren’t responsible for exam results, study or career decisions, or anything else that follows from using it.'),
     bankSection());
@@ -1356,7 +1789,7 @@ function bankSection() {
   if (bank.warnings.length) issues.push(h('details', null, h('summary', { class: 'strong', style: 'cursor:pointer' }, `${bank.warnings.length} warning(s)`), h('ul', { class: 'plain' }, bank.warnings.slice(0, 200).map(e => h('li', null, e)))));
   return h('section', { class: 'panel stack about', id: 'bank' }, h('h2', null, 'What’s in the question bank'),
     h('p', { class: 'muted' }, 'The questions are built into the simulator, so they can’t be changed here. A full exam draws from them using IIBA’s weighting of each area. Spotted a mistake? Report it on the project’s GitHub page.'),
-    bank.fatal ? h('div', { class: 'notice bad' }, bank.fatal) : h('p', { class: 'small mono muted' }, `version ${bank.version || 'n/a'} · ${bank.byId.size} questions · ${bank.cases.size} case studies`),
+    bank.fatal ? h('div', { class: 'notice bad' }, bank.fatal) : h('p', { class: 'small mono muted' }, `version ${bank.version || 'n/a'} · ${bank.byId.size} questions · ${bank.cases.size} case studies · ${match.exercises.length} match puzzles`),
     h('div', { class: 'tbl-wrap' }, h('table', { class: 'tbl' }, h('thead', null, h('tr', null, h('th', null, 'Exam'), h('th', null, 'Area'), h('th', { class: 'num' }, 'Weight'), h('th', { class: 'num' }, 'Full exam needs'), h('th', { class: 'num' }, 'In bank'), h('th', { class: 'num' }, 'Easy · mid · hard'))), tb)),
     issues.length ? issues : null);
 
@@ -1375,10 +1808,10 @@ function viewSettings() {
     h('div', null, h('div', { class: 'row' }, tgt, h('span', { class: 'strong' }, 'Practice target score (%)')),
       h('p', { class: 'small muted', style: 'margin-top:6px' }, 'IIBA reports pass/fail with performance indicators and does not publish a pass mark. 70% is a common community estimate, not an official number.'))));
 
-  const bytes = new Blob([JSON.stringify(history), JSON.stringify(cards), JSON.stringify(fstats)]).size;
+  const bytes = new Blob([JSON.stringify(history), JSON.stringify(cards), JSON.stringify(fstats), JSON.stringify(mstats)]).size;
   root.append(h('section', { class: 'panel stack' }, h('h2', { style: 'margin:0' }, 'Your data'),
     h('p', { class: 'muted' }, 'Results stay in this browser only (local storage). Nothing is sent anywhere. Clearing browser data deletes them, so export regularly and import on another device to continue there.'),
-    h('p', { class: 'small mono muted' }, `${history.length} attempts stored · ${Object.keys(cards).length} flash-card ratings · ${(bytes / 1024).toFixed(1)} KB`),
+    h('p', { class: 'small mono muted' }, `${history.length} attempts stored · ${Object.keys(cards).length} flash-card ratings · ${matchSolved()} puzzle${matchSolved() === 1 ? '' : 's'} solved · ${(bytes / 1024).toFixed(1)} KB`),
     h('div', { class: 'row' }, btn('Export history', exportData), btn('Import history', pickImport), btn('Clear all data', clearAll, 'ghost danger'))));
 
   root.append(h('section', { class: 'panel stack' }, h('h2', { style: 'margin:0' }, 'About'),
@@ -1387,15 +1820,15 @@ function viewSettings() {
   return root;
 }
 function clearAll() {
-  if (!confirm('Delete ALL results, flash-card progress and any attempt in progress from this browser? Export first if you want a backup.')) return;
-  clock.kill(); history = []; cards = Object.create(null); fstats = cleanFlash(null); S.session = null; S.fc = null;
-  ['history', 'cards', 'session', 'flash'].forEach(k => store.del(k));
+  if (!confirm('Delete ALL results, flash-card and puzzle progress, your day streak, and any attempt in progress from this browser? Export first if you want a backup.')) return;
+  clock.kill(); history = []; cards = Object.create(null); fstats = cleanFlash(null); mstats = Object.create(null); activity = cleanActivity(null); S.session = null; S.fc = null; S.mb = null;
+  ['history', 'cards', 'session', 'flash', 'match', 'activity'].forEach(k => store.del(k));
   toast('All data cleared.'); render();
 }
 
 /* --------------------------- import / export --------------------------- */
 function exportData() {
-  const data = { app: CONFIG.appId, schema: CONFIG.schema, exportedAt: new Date().toISOString(), bankVersion: bank.version, history, cards, flash: fstats };
+  const data = { app: CONFIG.appId, schema: CONFIG.schema, exportedAt: new Date().toISOString(), bankVersion: bank.version, history, cards, flash: fstats, match: mstats, activity };
   const url = URL.createObjectURL(new Blob([JSON.stringify(data)], { type: 'application/json' }));
   const a = h('a', { href: url, download: `ba-exam-sim-history-${new Date().toISOString().slice(0, 10)}.json` });
   document.body.append(a); a.click(); a.remove();
@@ -1438,6 +1871,14 @@ function importFile(file) {
       }
       saveFlash();
     }
+    if (data && data.match) {   // puzzles: keep the most stars, the best time and the most plays
+      const im = cleanMatch(data.match);
+      for (const k of Object.keys(im)) { const a = mstats[k], b = im[k]; mstats[k] = a ? { s: Math.max(a.s, b.s), b: a.b && b.b ? Math.min(a.b, b.b) : a.b || b.b, p: Math.max(a.p, b.p), t: Math.max(a.t, b.t), r: a.r || b.r } : b; }
+      saveMatch();
+    }
+    const ia = cleanActivity(data && data.activity);   // practice days: keep both sets and the longer best streak
+    activity = cleanActivity({ days: activity.days.concat(ia.days), best: Math.max(activity.best, ia.best) });
+    seedActivity(); store.set('activity', activity);
     toast(`Imported ${added} attempt${added === 1 ? '' : 's'}` + (dup ? `, ${dup} already here` : '') + (invalid ? `, ${invalid} invalid skipped` : '') + '.', added || dup ? '' : 'bad');
     render();
   };
@@ -1473,6 +1914,10 @@ document.addEventListener('keydown', e => {
     if ((k === ' ' || k === 'Enter') && tag !== 'BUTTON') { e.preventDefault(); flipCard(); }
     else if (S.fc.flipped && (k === 'ArrowRight' || k === '2')) { e.preventDefault(); rateCard(true); }
     else if (S.fc.flipped && (k === 'ArrowLeft' || k === '1')) { e.preventDefault(); rateCard(false); }
+  } else if (S.view === 'board' && S.mb && !S.mb.done) {
+    const b = S.mb, ex = match.byId.get(b.id), keys = ex ? ex.bins.concat(ex.none ? ['NONE'] : []) : [];
+    if (k === 'Escape' && b.sel) { e.preventDefault(); mbDeselect(); }
+    else if (b.sel && /^[0-9]$/.test(k)) { const n = Number(k); if (n === 0) { e.preventDefault(); mbPlace(b.sel, 'POOL'); } else if (n <= keys.length) { e.preventDefault(); mbPlace(b.sel, keys[n - 1]); } }
   }
 });
 window.addEventListener('pagehide', () => { if (S.view === 'quiz') clock.sync(); saveSession(); });
